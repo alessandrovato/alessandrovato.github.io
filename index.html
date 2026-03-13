@@ -3,68 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>BCIReahb Lab - Portfolio</title>
     <style>
+        :root {
+            --sidebar-width: 250px;
+            --primary-bg: #f4f7f6;
+            --sidebar-bg: #2c3e50;
+            --accent-color: #1abc9c;
+            --text-dark: #34495e;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f4;
+            display: flex; /* Creates the side-by-side layout */
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
         }
-        header {
-            background: #35424a;
-            color: #ffffff;
-            padding: 10px 0;
+
+        /* Navigation Sidebar */
+        nav {
+            width: var(--sidebar-width);
+            background: var(--sidebar-bg);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav h2 {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #bdc3c7;
+            text-decoration: none;
+            padding: 15px 20px;
+            width: 100%;
             text-align: center;
+            transition: 0.3s;
+            border-left: 4px solid transparent;
         }
-        section {
-            padding: 20px;
-            margin: 10px;
-            background: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        nav a:hover {
+            background: #34495e;
+            color: white;
+            border-left: 4px solid var(--accent-color);
         }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: #35424a;
-            color: #ffffff;
-            position: relative;
-            bottom: 0;
+
+        /* Main Content Area */
+        main {
+            margin-left: var(--sidebar-width); /* Prevents content from hiding under nav */
+            padding: 40px;
             width: 100%;
         }
-        a {
-            color: #35424a;
+
+        header {
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* Responsive tweak for mobile */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            nav { width: 100%; height: auto; position: relative; }
+            main { margin-left: 0; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>BCIReahb Lab</h1>
-    <p>Welcome to my personal portfolio!</p>
-</header>
+<nav>
+    <h2>BCIReahb</h2>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>Research in Brain-Computer Interfaces shares the same goal (harmony), the same issues (leaks in the electrode-brain interface), and the same method (respect, listening, adaptation).</p>
-</section>
+<main>
+    <header>
+        <h1>BCIReahb Lab Portfolio</h1>
+        <p>Interfacing mind and machine through adaptive harmony.</p>
+    </header>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <ul>
-        <li><a href="https://github.com/username/project1">Project 1</a> - Brief description of Project 1.</li>
-        <li><a href="https://github.com/username/project2">Project 2</a> - Brief description of Project 2.</li>
-        <li><a href="https://github.com/username/project3">Project 3</a> - Brief description of Project 3.</li>
-    </ul>
-</section>
+    <section id="about">
+        <h2>About the Research</h2>
+        <p>Our focus lies at the intersection of neural signal processing and biocompatible interfaces. By treating the "leaks" in electrode-brain communication as data points rather than just noise, we create more resilient BCI systems.</p>
+    </section>
 
-<footer>
-    <p>&copy; 2024 Your Name</p>
-    <p>Connect with me on <a href="https://twitter.com/yourusername">Twitter</a> | <a href="https://linkedin.com/in/yourusername">LinkedIn</a></p>
-</footer>
+    <section id="projects">
+        <h2>Active Projects</h2>
+        <ul class="project-list">
+            <li><strong>Project Alpha:</strong> Neural signal decoding for motor rehabilitation.</li>
+            <li><strong>Project Beta:</strong> Reducing electrode impedance via conductive polymers.</li>
+            <li><strong>Project Gamma:</strong> Real-time artifact rejection in EEG.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BCIReahb Lab | Built with Precision</p>
+    </footer>
+</main>
 
 </body>
 </html>
