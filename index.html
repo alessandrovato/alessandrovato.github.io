@@ -15,8 +15,14 @@
             --sidebar-color: #1a252f; /* The original dark slate */
             --accent: #1abc9c;        /* The original teal/green accent */
             }
+body {
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-color);
+            color: #333;
+                }
 
-        
     
         /* Sidebar Navigation */
         nav {
@@ -65,14 +71,7 @@
             background: white;    /* Keeps logo visible if it has a dark background */
         } */
 
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            margin: 0;
-            display: flex;
-            background-color: var(--bg-color);
-            color: #333;
-                }
-
+        
 .project-item {
     border-top: 5px solid var(--accent); /* Uses the new bright blue */
 }
