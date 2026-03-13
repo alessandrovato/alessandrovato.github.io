@@ -10,14 +10,13 @@
             scroll-behavior: smooth;
         }
 
-    
         :root {
-    --nav-width: 260px;
-    --bg-color: #ffffff;          /* Clean white background */
-    --sidebar-color: #002147;     /* Deep Navy (Academic/Medical standard) */
-    --accent: #007bff;            /* Bright Blue (Action/Link color) */
-    --card-bg: #f8f9fa;           /* Very light grey for subtle depth */
-    --text-main: #333333;
+        --nav-width: 260px;
+        --bg-color: #ffffff;          /* Clean white background */
+        --sidebar-color: #002147;     /* Deep Navy (Academic/Medical standard) */
+        --accent: #007bff;            /* Bright Blue (Action/Link color) */
+        --card-bg: #f8f9fa;           /* Very light grey for subtle depth */
+        --text-main: #333333;
 }
 
         body {
@@ -51,19 +50,19 @@
         .nav-profile h2 { margin: 0; font-size: 1.4rem; color: var(--accent); }
         .nav-profile p { font-size: 0.8rem; opacity: 0.7; margin-top: 5px; }
 
-        nav a {
-            color: #ecf0f1;
-            text-decoration: none;
-            padding: 15px 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+        nav {
+    background: var(--sidebar-color);
+    color: white; /* Contrast against navy */
+}
 
-        nav a:hover {
-            background: #2c3e50;
-            color: var(--accent);
-            padding-left: 40px;
-        }
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
+    color: var(--accent);
+}
+
+.project-item {
+    border-top: 5px solid var(--accent); /* Uses the new bright blue */
+}
 
         /* Content Sections */
         main {
