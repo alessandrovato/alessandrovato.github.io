@@ -12,22 +12,10 @@
 
         :root {
             --nav-width: 260px;
-            --bg-color: #ffffff;          /* Clean white background */
-            --sidebar-color: #002147;     /* Deep Navy (Academic/Medical standard) */
-            --accent: #007bff;            /* Bright Blue (Action/Link color) */
-            --card-bg: #f8f9fa;           /* Very light grey for subtle depth */
-            --text-main: #333333;
-}
+            --sidebar-color: #1a252f; /* The original dark slate */
+            --accent: #1abc9c;        /* The original teal/green accent */
+            }
 
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            margin: 0;
-            display: flex;
-            background-color: var(--bg-color);
-            color: #333;
-        }
-
-        /* Sidebar Navigation */
         nav {
             width: var(--nav-width);
             height: 100vh;
@@ -39,6 +27,41 @@
             padding: 40px 0;
             box-sizing: border-box;
         }
+        
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: #2c3e50;
+            color: var(--accent);
+            padding-left: 40px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-color);
+            color: #333;
+        }
+
+        /* Sidebar Navigation */
+        /* nav {
+            width: var(--nav-width);
+            height: 100vh;
+            background: var(--sidebar-color);
+            color: white;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            box-sizing: border-box;
+        } */
 
 
         .nav-profile {
