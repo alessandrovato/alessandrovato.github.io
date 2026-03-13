@@ -16,6 +16,9 @@
             --accent: #1abc9c;        /* The original teal/green accent */
             }
 
+        
+    
+        /* Sidebar Navigation */
         nav {
             width: var(--nav-width);
             height: 100vh;
@@ -42,28 +45,6 @@
             padding-left: 40px;
         }
 
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            margin: 0;
-            display: flex;
-            background-color: var(--bg-color);
-            color: #333;
-        }
-
-        /* Sidebar Navigation */
-        /* nav {
-            width: var(--nav-width);
-            height: 100vh;
-            background: var(--sidebar-color);
-            color: white;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            padding: 40px 0;
-            box-sizing: border-box;
-        } */
-
-
         .nav-profile {
             text-align: center;
             padding-bottom: 30px;
@@ -74,17 +55,23 @@
         .nav-profile h2 { margin: 0; font-size: 1.4rem; color: var(--accent); }
         .nav-profile p { font-size: 0.8rem; opacity: 0.7; margin-top: 5px; }
 
-.nav-logo {
-    width: 80px;          /* Adjust size as needed */
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 50%;   /* Optional: makes the logo circular */
-    border: 2px solid var(--accent); /* Adds a subtle ring in your theme color */
-    padding: 5px;
-    background: white;    /* Keeps logo visible if it has a dark background */
-} */
+        .nav-logo {
+            width: 80px;          /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 15px;
+            /* border-radius: 50%;   /* Optional: makes the logo circular */ */
+            border: 2px solid var(--accent); /* Adds a subtle ring in your theme color */
+            padding: 5px;
+            background: white;    /* Keeps logo visible if it has a dark background */
+        } */
 
-
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-color);
+            color: #333;
+                }
 
 .project-item {
     border-top: 5px solid var(--accent); /* Uses the new bright blue */
