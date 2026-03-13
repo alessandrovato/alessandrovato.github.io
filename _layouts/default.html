@@ -135,6 +135,34 @@
     border-top: 1px solid #eee;
     padding-top: 10px;
 }
+
+.side-by-side {
+    display: flex;
+    align-items: flex-start; /* Aligns text to the top of the image */
+    gap: 30px;               /* Space between image and text */
+    margin: 40px 0;
+}
+
+.side-by-side .lab-figure {
+    flex: 1;                 /* Takes up proportional space */
+    margin: 0;               /* Resets default figure margins */
+    min-width: 300px;        /* Prevents image from getting too tiny */
+}
+
+.side-by-side .side-text {
+    flex: 2;                 /* Text gets more room than the image */
+}
+
+/* Responsive: Stacks them on small screens */
+@media (max-width: 768px) {
+    .side-by-side {
+        flex-direction: column;
+    }
+    .side-by-side .lab-figure {
+        width: 100%;
+    }
+}
+        
     </style>
 </head>
 <body>
