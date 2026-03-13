@@ -179,6 +179,43 @@
     background: #fff;
 }
 
+        @media (max-width: 768px) {
+    /* 1. Reset the layout from Flex to Column */
+    body {
+        flex-direction: column;
+    }
+
+    /* 2. Turn Sidebar into a Top Bar */
+    nav {
+        width: 100%;
+        height: auto;       /* Let it shrink to content size */
+        position: relative; /* Stop it from floating over content */
+        top: 0;
+        padding: 10px 0;
+        flex-direction: row; /* Align links side-by-side */
+        justify-content: center;
+        flex-wrap: wrap;    /* Allow links to wrap to second line if needed */
+    }
+
+    /* 3. Adjust Navigation Links */
+    nav a {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* 4. Hide the profile name/description on mobile to save space */
+    .nav-profile {
+        display: none;
+    }
+
+    /* 5. Reset the main content margin */
+    main {
+        margin-left: 0;
+        padding: 20px;
+        margin-top: 0;
+    }
+}
+        
             
     </style>
 </head>
