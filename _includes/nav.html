@@ -1,1 +1,37 @@
+/* Sidebar Navigation */
+        nav {
+            width: var(--nav-width);
+            height: 100vh;
+            background: var(--sidebar-color);
+            color: white;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            box-sizing: border-box;
+            z-index: 100;
+        }
 
+        .nav-profile {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #34495e;
+            margin-bottom: 20px;
+        }
+
+        .nav-profile h2 { margin: 0; font-size: 1.4rem; color: #fff; }
+        .nav-profile p { font-size: 0.8rem; opacity: 0.7; margin-top: 5px; }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #2c3e50;
+            color: var(--accent); /* CUA Red highlight */
+            padding-left: 40px;
+        }
