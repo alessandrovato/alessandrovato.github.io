@@ -228,78 +228,39 @@
         max-width: 50px; /* Adjust this number to your preferred size */
         margin: 20px auto; /* Centers it with some breathing room */
         }
-            .header-left {
-                display: flex;
-                align-items: center;
-                gap: 15px; /* Space between logo and Lab Name */
-            }
-            
-            .header-logo {
-                height: 40px;      /* Limits the logo height to fit the 60px header */
-                width: auto;       /* Maintains aspect ratio */
-                display: block;
-                transition: transform 0.3s ease;
-            }
-            
-            .logo-link:hover .header-logo {
-                transform: scale(1.05); /* Subtle grow effect on hover */
-            }
-            
-            /* Ensure the header-content stretches to the edges */
-            .header-content {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                padding: 0 20px;
-            }
-
-        .header-right {
+.header-left {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between text and CUA logo */
+    gap: 15px; /* Space between the lab logo and the text */
 }
 
-.uni-logo {
-    height: 35px;      /* Slightly smaller than the lab logo for hierarchy */
+.lab-name {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white;
+    letter-spacing: 0.5px;
+    white-space: nowrap; /* Prevents name from breaking into two lines */
+}
+
+.header-logo {
+    height: 45px;
     width: auto;
     display: block;
 }
 
-/* Ensure the middle stays clear */
-.header-content {
-    display: flex;
-    justify-content: space-between; /* Pushes left and right divs to the edges */
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-}
-
-        .top-header {
-    background-color: var(--accent);
-    height: 70px; /* Slightly taller to give logos breathing room */
-    display: flex;
-    align-items: center;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between; /* Pushes Lab Logo Left, CUA Logo Right */
-    align-items: center;
-    width: 100%;
-    padding: 0 30px; /* Adjust padding to move logos closer/further from edges */
-}
-
-.header-logo {
-    height: 45px; /* Size for your Lab Logo */
-    width: auto;
-}
-
 .uni-logo {
-    height: 40px; /* Size for the CUA Logo */
+    height: 40px;
     width: auto;
-    /* Optional: if your CUA logo is dark, make it white to match the header */
+    /* Keeps the university logo white to match the aesthetic */
     filter: brightness(0) invert(1); 
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Pushes Lab info left and CUA logo right */
+    align-items: center;
+    width: 100%;
+    padding: 0 25px;
 }
 
 /* Mobile Fix: Ensure they don't touch the screen edges */
