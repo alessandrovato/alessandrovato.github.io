@@ -145,68 +145,68 @@
         }
 
         /* --- VERTICAL TIMELINE --- */
-.vertical-timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 40px 0;
-    padding-left: 40px; /* Space for the vertical line */
-}
-
-/* The vertical CUA Red line */
-.vertical-timeline::before {
-    content: '';
-    position: absolute;
-    left: 18px; /* Centers line under the dots */
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--accent);
-    border-radius: 2px;
-}
-
-.v-timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-/* The Dot on the line */
-.v-timeline-dot {
-    position: absolute;
-    left: -30px; /* Aligns with the vertical line */
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background: var(--accent);
-    border: 4px solid #fff;
-    border-radius: 50%;
-    z-index: 2;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-}
-
-.v-timeline-date {
-    font-weight: bold;
-    color: var(--accent);
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-.v-timeline-content {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-    transition: transform 0.3s ease;
-}
-
-.v-timeline-content:hover {
-    transform: translateX(10px); /* Subtle slide right on hover */
-}
-
-.v-timeline-content h4 {
-    margin: 0 0 10px 0;
-    color: var(--sidebar-color);
-}
+        .vertical-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px 0;
+            padding-left: 40px; /* Space for the vertical line */
+        }
+        
+        /* The vertical CUA Red line */
+        .vertical-timeline::before {
+            content: '';
+            position: absolute;
+            left: 18px; /* Centers line under the dots */
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .v-timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        /* The Dot on the line */
+        .v-timeline-dot {
+            position: absolute;
+            left: -30px; /* Aligns with the vertical line */
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        
+        .v-timeline-date {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .v-timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+        
+        .v-timeline-content:hover {
+            transform: translateX(10px); /* Subtle slide right on hover */
+        }
+        
+        .v-timeline-content h4 {
+            margin: 0 0 10px 0;
+            color: var(--sidebar-color);
+        }
 
         /* --- MOBILE VIEW --- */
         @media (max-width: 768px) {
