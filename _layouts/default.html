@@ -3,231 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCIRehab Lab | Neural Engineering</title>
+    <title>BCIRehab Lab</title>
     <style>
-        /* Smooth scrolling behavior */
-        html { scroll-behavior: smooth; }
-
+        /* --- GLOBAL VARIABLES & RESET --- */
         :root {
-            --nav-width: 260px;
-            --bg-color: #f4f4f4;
-            /* --sidebar-color: #1a252f; /* Original Dark Slate */
-            --sidebar-color: #004c70;  /* Original CUA Black */
-            --accent: #A6192E;        /* Official CUA Red */
-            --card-bg: #ffffff;
+            --accent: #A6192E; /* CUA Red */
+            --sidebar-color: #2c3e50;
+            --text-dark: #333;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { 
+            scroll-behavior: smooth; 
+            width: 100%;
+            overflow-x: hidden;
         }
 
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             display: flex;
-            background-color: var(--bg-color);
-            color: #333;
+            color: var(--text-dark);
+            background-color: #f4f4f4;
         }
 
-        /* Sidebar Navigation */
-        nav {
-            width: var(--nav-width);
-            height: 100vh;
-            background: var(--sidebar-color);
-            color: white;
+        /* --- TOP HEADER --- */
+        .top-header {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        /* --- SIDEBAR NAVIGATION --- */
+        nav {
+            width: 250px;
+            background-color: var(--sidebar-color);
+            height: 100vh;
+            position: fixed;
+            top: 60px;
+            padding-top: 20px;
             display: flex;
             flex-direction: column;
-            padding: 40px 0;
-            box-sizing: border-box;
-            z-index: 100;
         }
-
-        .nav-profile {
-            text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #34495e;
-            margin-bottom: 20px;
-        }
-
-        .nav-profile h2 { margin: 0; font-size: 1.4rem; color: #fff; }
-        .nav-profile p { font-size: 0.8rem; opacity: 0.7; margin-top: 5px; }
 
         nav a {
-            color: #ecf0f1;
+            color: white;
+            padding: 15px 25px;
             text-decoration: none;
-            padding: 15px 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            transition: 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        nav a:hover {
-            background: #2c3e50;
-            color: var(--accent); /* CUA Red highlight */
-            padding-left: 40px;
-        }
+        nav a:hover { background: var(--accent); }
 
-        /* Content Layout */
+        /* --- MAIN CONTENT AREA --- */
         main {
-            margin-left: var(--nav-width);
+            margin-left: 250px;
+            margin-top: 60px;
+            padding: 40px;
+            width: calc(100% - 250px);
+        }
+
+        section { margin-bottom: 60px; }
+
+        /* --- HORIZONTAL TIMELINE --- */
+        .timeline-container {
             width: 100%;
-            max-width: 1000px;
-            padding: 60px;
-            margin-top: 40px;     /* Space for the top header */
-            padding-top: 0;   /* Ensure there is no extra internal space */
+            overflow-x: auto;
+            padding: 40px 0;
+            scrollbar-width: thin;
+        }
+
+        .timeline-wrapper {
+            display: flex;
+            position: relative;
+            padding-bottom: 20px;
+            min-width: max-content;
+        }
+
+        /* The horizontal CUA Red line */
+        .timeline-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            width: 280px;
+            margin: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-date {
+            width: 55px;
+            height: 55px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                height: 65px;
+                bottom: 0;
+                top: auto;
+                flex-direction: row;
+                justify-content: space-around;
+                z-index: 2000;
             }
 
-        section {
-            min-height: 80vh;
-            padding: 60px 0;
-            border-bottom: 1px solid #ddd;
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding-bottom: 80px;
+            }
+
+            .uni-name { display: none; }
         }
-
-        h1, h2 { color: var(--sidebar-color); }
-
-        .bci-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            line-height: 1.8;
-            border-left: 4px solid var(--accent); /* CUA Red accent line */
-        }
-
-        /* Project Grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .project-item {
-            background: white;
-            padding: 25px;
-            border-top: 5px solid var(--accent); /* CUA Red top border */
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .project-item {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
-        }
-
-        .project-item:hover {
-            transform: translateY(-8px); /* Lifts the card up */
-            box-shadow: 0 10px 20px rgba(166, 25, 46, 0.2); /* Adds a CUA Red glow */
-        }
-
-        /* Mobile View */
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            nav { width: 100%; height: auto; position: static; }
-            main { margin-left: 0; padding: 20px; }
-        }
-
-        .lab-figure {
-            margin: 30px auto;
-            text-align: center;
-            background: #fff;
-            padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        max-width: 100%;
-        }
-
-.lab-figure img {
-    max-width: 100%;  /* Ensures image doesn't overflow on mobile */
-    height: auto;
-    border-radius: 4px;
-}
-
-.lab-figure figcaption {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #666;
-    font-style: italic;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
-}
-
-.side-by-side {
-    display: flex;
-    align-items: flex-start; /* Aligns text to the top of the image */
-    gap: 30px;               /* Space between image and text */
-    margin: 40px 0;
-}
-
-.side-by-side .lab-figure {
-    flex: 1;                 /* Takes up proportional space */
-    margin: 0;               /* Resets default figure margins */
-    min-width: 300px;        /* Prevents image from getting too tiny */
-}
-
-.side-by-side .side-text {
-    flex: 2;                 /* Text gets more room than the image */
-}
-
-/* Responsive: Stacks them on small screens */
-@media (max-width: 768px) {
-    /* 1. Stack the layout and remove sidebar width */
-    body {
-        flex-direction: column;
-    }
-
-    /* 2. Turn Sidebar into a Sticky Bottom Bar */
-    nav {
-        width: 100%;
-        height: 65px;         /* Compact height */
-        position: fixed;
-        bottom: 0;            /* Sticks to the bottom */
-        top: auto;            /* Removes the top placement */
-        flex-direction: row;  /* Horizontal links */
-        justify-content: space-around;
-        align-items: center;
-        padding: 0;
-        background: var(--sidebar-color);
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-        z-index: 2000;
-    }
-
-    /* 3. Style links as "Buttons" for thumbs */
-    nav a {
-        padding: 10px;
-        font-size: 0.8rem;
-        text-align: center;
-        flex: 1;
-        border-bottom: none;
-    }
-
-    nav a:hover {
-        padding-left: 10px; /* Reset the desktop hover effect */
-        background: transparent;
-        color: var(--accent);
-    }
-
-    /* 4. Hide profile info to save space */
-    .nav-profile {
-        display: none;
-    }
-
-    /* 5. Adjust main content so it doesn't get cut off by the bottom bar */
-    main {
-        margin-left: 0;
-        padding: 20px;
-        padding-bottom: 80px; /* Space for the bottom bar */
-        margin-top: 40px;     /* Space for the top header */
-        padding-top: 0;   /* Ensure there is no extra internal space */
-        }
-}
-
-        .research-section {
-    margin-bottom: 50px; /* Adds space below the section */
-    padding-top: 20px;    /* Adds space inside at the top */
-}
-            
     </style>
 </head>
 <body>
 
-    
+    <header class="top-header">
+        <div class="header-content">
+            <span class="lab-name">BCIRehab Lab</span>
+            <span class="uni-name">The Catholic University of America</span>
+        </div>
+    </header>
+
     {% include nav.html %}
 
     <main>
