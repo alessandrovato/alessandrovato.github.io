@@ -228,7 +228,31 @@
         max-width: 50px; /* Adjust this number to your preferred size */
         margin: 20px auto; /* Centers it with some breathing room */
         }
-
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 15px; /* Space between logo and Lab Name */
+            }
+            
+            .header-logo {
+                height: 40px;      /* Limits the logo height to fit the 60px header */
+                width: auto;       /* Maintains aspect ratio */
+                display: block;
+                transition: transform 0.3s ease;
+            }
+            
+            .logo-link:hover .header-logo {
+                transform: scale(1.05); /* Subtle grow effect on hover */
+            }
+            
+            /* Ensure the header-content stretches to the edges */
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 0 20px;
+            }
         /* --- MOBILE VIEW --- */
         @media (max-width: 768px) {
             body { flex-direction: column; }
@@ -266,6 +290,20 @@
 
             .uni-name { display: none; }
         }
+
+        @media (max-width: 768px) {
+    .uni-name {
+        display: none; /* Hides "Catholic University..." on phones */
+    }
+    
+    .lab-name {
+        font-size: 1rem; /* Slightly smaller text for mobile */
+    }
+    
+    .header-logo {
+        height: 35px; /* Slightly smaller logo for mobile */
+    }
+}
     </style>
 </head>
 <body>
