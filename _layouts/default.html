@@ -36,6 +36,18 @@
             color: var(--text-dark);
         }
 
+        /* Timelin Initial hidden state */
+        .v-timeline-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        /* State when the item is visible */
+        .v-timeline-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         /* --- TOP HEADER --- */
         .top-header {
             position: fixed;
