@@ -276,7 +276,7 @@
 }
         
         /* --- MOBILE VIEW --- */
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             body { flex-direction: column; }
             
             nav {
@@ -311,7 +311,18 @@
             }
 
             .uni-name { display: none; }
-        }
+        } */
+        @media (max-width: 768px) {
+    /* Hide the University Name and the second logo on small screens */
+    .uni-name, .uni-logo {
+        display: none; 
+    }
+    
+    /* Center the Lab Logo/Name on mobile if preferred */
+    .header-content {
+        justify-content: center;
+    }
+}
 
         @media (max-width: 768px) {
     .uni-name {
