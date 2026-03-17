@@ -34,6 +34,16 @@
             display: flex;
             background-color: var(--bg-color);
             color: var(--text-dark);
+            /* This stops the "Pull-to-Refresh" and the "Bounce" effect */
+            overscroll-behavior-y: none;
+    
+            /* Optional: This also stops the side-to-side "Back/Forward" swipe on Mac/iOS */
+            overscroll-behavior-x: none;
+
+            /* Ensures the page height is locked to the screen */
+            height: 100%;
+            overflow: hidden; 
+}
         }
 
         /* Timelin Initial hidden state */
@@ -117,6 +127,9 @@
             padding: 40px;
             width: calc(100% - var(--nav-width));
             max-width: 1200px;
+            height: calc(100vh - 70px); /* Adjust based on your header height */
+            overflow-y: auto; /* Allows normal up/down scrolling within the container */
+            -webkit-overflow-scrolling: touch; /* Keeps the scroll feeling smooth on iPhones */
         }
 
         section {
@@ -362,6 +375,7 @@
     {% include nav.html %}
 
     <main>
+        
         {{ content }}
     </main>
 
