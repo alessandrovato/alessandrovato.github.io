@@ -274,7 +274,43 @@
     width: 100%;
     padding: 0 20px;
 }
-        
+
+        .top-header {
+    background-color: var(--accent);
+    height: 70px; /* Slightly taller to give logos breathing room */
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Pushes Lab Logo Left, CUA Logo Right */
+    align-items: center;
+    width: 100%;
+    padding: 0 30px; /* Adjust padding to move logos closer/further from edges */
+}
+
+.header-logo {
+    height: 45px; /* Size for your Lab Logo */
+    width: auto;
+}
+
+.uni-logo {
+    height: 40px; /* Size for the CUA Logo */
+    width: auto;
+    /* Optional: if your CUA logo is dark, make it white to match the header */
+    filter: brightness(0) invert(1); 
+}
+
+/* Mobile Fix: Ensure they don't touch the screen edges */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 15px;
+    }
+    .header-logo, .uni-logo {
+        height: 35px;
+    }
+}
         /* --- MOBILE VIEW --- */
     @media (max-width: 768px) {
             body { flex-direction: column; }
