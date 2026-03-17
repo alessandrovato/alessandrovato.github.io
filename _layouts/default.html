@@ -106,6 +106,16 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
+        .project-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        }
+
+        .project-item:hover {
+            transform: translateY(-8px); /* Lifts the card up */
+            box-shadow: 0 10px 20px rgba(166, 25, 46, 0.2); /* Adds a CUA Red glow */
+        }
+
         /* Mobile View */
         @media (max-width: 768px) {
             body { flex-direction: column; }
