@@ -253,6 +253,28 @@
                 width: 100%;
                 padding: 0 20px;
             }
+
+        .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between text and CUA logo */
+}
+
+.uni-logo {
+    height: 35px;      /* Slightly smaller than the lab logo for hierarchy */
+    width: auto;
+    display: block;
+}
+
+/* Ensure the middle stays clear */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Pushes left and right divs to the edges */
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+        
         /* --- MOBILE VIEW --- */
         @media (max-width: 768px) {
             body { flex-direction: column; }
