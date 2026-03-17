@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCIRehab Lab | Neural Engineering</title>
+    
     <style>
         /* --- GLOBAL VARIABLES & RESET --- */
         :root {
@@ -32,26 +33,14 @@
         body {
             
             width: 100%;
-            padding: 0;
-            overflow-x: hidden; /* This is the "kill switch" for horizontal scrolling */
-            /* position: relative; */
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             margin: 0;
-            display: flex;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-dark);
-            /* This stops the "Pull-to-Refresh" and the "Bounce" effect */
-            overscroll-behavior-y: none;
-    
-            /* Optional: This also stops the side-to-side "Back/Forward" swipe on Mac/iOS */
-            overscroll-behavior-x: none;
-
-            /* Ensures the page height is locked to the screen */
-            height: 100%;
-            overflow: hidden; 
-            /* position: fixed; */
-            width: 100%;
-            height: 100%;
+            /* REMOVED: position: fixed, height: 100%, and overflow: hidden */
+            display: flex;
+            flex-direction: column;
         }
 
         /* Timelin Initial hidden state */
@@ -131,19 +120,18 @@
         /* --- MAIN CONTENT AREA --- */
         main {
             padding-top: 10px; /* Reduced from 40px or 60px */
-            margin-left: var(--nav-width);
-            margin-top: 60px;
+            margin-left: var(--nav-width); /* Keeps space for sidebar */
+            margin-top: 60px;              /* Space for the top header */
             padding: 40px;
             width: calc(100% - var(--nav-width));
             max-width: 1200px;
-            height: calc(100vh - 70px); /* Adjust based on your header height */
-            overflow-y: auto; /* Allows normal up/down scrolling within the container */
-            -webkit-overflow-scrolling: touch; /* Keeps the scroll feeling smooth on iPhones */
         }
 
         section {
+            scroll-margin-top: 80px; /* Keeps titles from hiding under the header */
             padding: 60px 0;
             border-bottom: 1px solid #ddd;
+}
         }
 
         .top-header {
@@ -258,40 +246,40 @@
         max-width: 50px; /* Adjust this number to your preferred size */
         margin: 20px auto; /* Centers it with some breathing room */
         }
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Space between the lab logo and the text */
-}
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between the lab logo and the text */
+        }
+        
+        .lab-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: white;
+            letter-spacing: 0.5px;
+            white-space: nowrap; /* Prevents name from breaking into two lines */
+        }
+        
+        .header-logo {
+            height: 45px;
+            width: auto;
+            display: block;
+        }
+        
+        .uni-logo {
+            height: 40px;
+            width: auto;
+            /* Keeps the university logo white to match the aesthetic */
+            /* filter: brightness(0) invert(1);  */
+        }
 
-.lab-name {
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: white;
-    letter-spacing: 0.5px;
-    white-space: nowrap; /* Prevents name from breaking into two lines */
-}
-
-.header-logo {
-    height: 45px;
-    width: auto;
-    display: block;
-}
-
-.uni-logo {
-    height: 40px;
-    width: auto;
-    /* Keeps the university logo white to match the aesthetic */
-    /* filter: brightness(0) invert(1);  */
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between; /* Pushes Lab info left and CUA logo right */
-    align-items: center;
-    width: 100%;
-    padding: 0 25px;
-}
+        .header-content {
+            display: flex;
+            justify-content: space-between; /* Pushes Lab info left and CUA logo right */
+            align-items: center;
+            width: 100%;
+            padding: 0 25px;
+        }
 
 /* Mobile Fix: Ensure they don't touch the screen edges */
 @media (max-width: 768px) {
