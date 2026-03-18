@@ -358,6 +358,26 @@
                 gap: 10px;
             }
         }
+
+        /* Target only the 'About' section */
+        #about {
+            background-color: var(--sidebar-color); /* This is your CUA Blue */
+            color: white;                           /* Make text white so it's readable */
+            padding: 60px 40px;                     /* Add internal padding so text doesn't touch the blue edges */
+            margin-left: -40px;                     /* Pulls the background left to negate main's padding */
+            margin-right: -40px;                    /* Pulls the background right to negate main's padding */
+            width: calc(100% + 80px);               /* Expands the width to fill the gap created by negative margins */
+        }
+        
+        /* Ensure any headers inside this blue section turn white too */
+        #about h1, #about h2, #about h3 {
+            color: white !important;
+        }
+
+/* Remove the border-bottom for this section so it looks seamless */
+#about {
+    border-bottom: none;
+}
     </style>
 </head>
 <body>
