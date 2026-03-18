@@ -64,6 +64,10 @@
             height: auto;       /* Maintains aspect ratio */
             display: block;
         }
+        .timeline-figure img {
+            max-height: 250px; 
+            object-fit: cover; /* This crops the image slightly to fit the height gracefully */
+        }
         
         .timeline-figure .caption {
             padding: 10px;
