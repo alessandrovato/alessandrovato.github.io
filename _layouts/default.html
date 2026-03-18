@@ -49,6 +49,31 @@
             flex-direction: column;
         }
 
+
+        .timeline-figure {
+            margin: 15px 0;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+        }
+        
+        .timeline-figure img {
+            width: 100%;        /* Makes image fill the card width */
+            height: auto;       /* Maintains aspect ratio */
+            display: block;
+        }
+        
+        .timeline-figure .caption {
+            padding: 10px;
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            margin: 0;
+            text-align: center;
+        }
+
         /* Timelin Initial hidden state */
         .v-timeline-item {
             opacity: 0;
