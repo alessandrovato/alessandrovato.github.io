@@ -287,6 +287,12 @@
             padding: 0 25px;
         }
 
+        .header-right a:hover .uni-logo {
+            opacity: 0.8;
+            transform: scale(1.02);
+            transition: all 0.2s ease;
+        }
+
 /* Mobile Fix: Ensure they don't touch the screen edges */
 @media (max-width: 768px) {
     .header-content {
@@ -384,11 +390,13 @@
             </div>
     
             <div class="header-right">
+                <a href="https://www.catholic.edu" target="_blank" rel="noopener noreferrer">
                 <img src="assets/images/cua-logo.png" alt="CUA Logo" class="uni-logo">
-            </div>
+                </a>
+</div>
         </div>
     </header>
-
+    
     {% include nav.html %}
 
     <main>
