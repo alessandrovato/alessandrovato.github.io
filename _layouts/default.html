@@ -275,33 +275,42 @@ h2, h3 {
 
 
         
-        .home-grid {
+.home-grid {
     display: flex;
-    align-items: stretch; /* This is the "magic" that forces equal height */
-    gap: 20px;
+    align-items: stretch; /* Forces both sides to be the same height */
+    gap: 0;               /* Optional: remove gap for a seamless "split" look */
     margin-top: 30px;
 }
 
+/* The wrapper for the image */
 .home-image-side {
-    flex: 1; /* Takes up equal or proportional width */
-    display: flex; /* Ensures the inner image can fill the container */
+    flex: 1; 
+    display: flex;        /* Essential to make the child img behave */
 }
 
+/* The image itself */
 .home-image-side img {
     width: 100%;
-    height: 100%;       /* Fills the entire height of the text card */
-    object-fit: cover;  /* Prevents stretching; crops the image to fit the space */
-    border-radius: 20px; /* Matches your card's modern tech corners */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    height: 100%;         /* Forces it to match the height of the text card */
+    object-fit: cover;    /* Prevents the image from looking squished */
+    object-position: center; 
+    
+    /* Matching the card's tech style */
+    border-radius: 20px 0 0 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* The text card */
 .home-text-side.bci-card {
-    flex: 1.2;          /* Gives the text slightly more width than the image */
-    margin: 0;          /* Removes default card margins to align perfectly */
+    flex: 1.5;            /* Gives the text more room */
+    margin: 0;            /* Removes default margins that cause misalignment */
+    border-radius: 0 20px 20px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically centers the text inside the card */
+    justify-content: center; /* Centers text vertically if the image is very tall */
 }
+
+        
         /* --- MOBILE FIX --- */
         @media (max-width: 900px) {
             .home-grid {
