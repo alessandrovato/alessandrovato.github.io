@@ -475,7 +475,24 @@ body {
         }
 
         .v-timeline-item:nth-child(even) {
-        transition-delay: 0.1s;
+            transition-delay: 0.1s;
+        }
+
+        .v-timeline-img {
+            width: 100%;          /* Take up the full width of the card */
+            max-width: 300px;     /* Optional: prevents it from getting TOO huge */
+            height: auto;         /* Allows the height to grow naturally */
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .v-timeline-img img {
+            width: 100%;          /* Fills the container width */
+            height: auto;         /* Maintains the original proportions */
+            object-fit: contain;  /* Ensures the whole photo is visible */
+            display: block;
+            border: 1px solid #eee;
         }
 
         /* /* Container for the timeline image 
@@ -496,23 +513,10 @@ body {
             display: block;
         } */
 
-v-timeline-img {
-    width: 100%;          /* Take up the full width of the card */
-    max-width: 300px;     /* Optional: prevents it from getting TOO huge */
-    height: auto;         /* Allows the height to grow naturally */
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-}
+     
 
-.v-timeline-img img {
-    width: 100%;          /* Fills the container width */
-    height: auto;         /* Maintains the original proportions */
-    object-fit: contain;  /* Ensures the whole photo is visible */
-    display: block;
-    border: 1px solid #eee;
-}
-        
+
+/*  END VERTICAL TIMELINE */
         
         .lab-figure.small {
         max-width: 50px; /* Adjust this number to your preferred size */
