@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCIRehab Lab | Neural Engineering</title>
     <style>
@@ -80,7 +79,43 @@
     max-width: 65ch; /* Limits width to about 65 characters per line (ideal for eyes) */
     line-height: 1.8; /* "Airy" feel */
 }
-        
+        /* --- GLOBAL TYPOGRAPHY --- */
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Normal weight for reading */
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* --- THE NEW H1 (Matches body style) --- */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;           /* "Extra Bold" makes it a title without being "fancy" */
+    font-size: 2.8rem;          /* Large and impactful */
+    letter-spacing: -0.03em;    /* Slight tightening makes Inter look like a premium logo */
+    color: var(--sidebar-color);
+    margin-bottom: 24px;
+    border-left: 8px solid var(--accent); /* Adds a "Tech bar" to the left of the main title */
+    padding-left: 20px;
+}
+
+/* --- SUBHEADINGS --- */
+h2, h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--sidebar-color);
+}
+
+/* --- THE TECH TOUCH (Monospace) --- */
+/* Use this for dates, labels, or small captions to give it an engineering feel */
+.v-timeline-date, .side-caption, strong {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
         body {
             
             width: 100%;
