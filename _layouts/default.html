@@ -478,24 +478,41 @@ body {
         transition-delay: 0.1s;
         }
 
-        /* Container for the timeline image */
+        /* /* Container for the timeline image 
         .v-timeline-img {
-            width: 80px;          /* Set your desired width */
-            height: 80px;         /* Set the same height for a square */
-            flex-shrink: 0;       /* Prevents the image from getting squeezed */
-            margin-right: 20px;   /* Space between image and text */
+            width: 80px;          /* Set your desired width 
+            height: 80px;         /* Set the same height for a square 
+            flex-shrink: 0;       /* Prevents the image from getting squeezed 
+            margin-right: 20px;   /* Space between image and text 
         }
         
-        /* The actual image inside */
+        /* The actual image inside 
         .v-timeline-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;    /* Ensures no stretching/distortion */
-            /* border-radius: 50%;   /* Use 50% for circles, 8px for soft squares */
-            border: 2px solid var(--accent); /* Adds that high-tech border */
+            /* border-radius: 50%;   /* Use 50% for circles, 8px for soft squares 
+            border: 2px solid var(--accent); /* Adds that high-tech border 
             display: block;
-        }
+        } */
 
+v-timeline-img {
+    width: 100%;          /* Take up the full width of the card */
+    max-width: 300px;     /* Optional: prevents it from getting TOO huge */
+    height: auto;         /* Allows the height to grow naturally */
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.v-timeline-img img {
+    width: 100%;          /* Fills the container width */
+    height: auto;         /* Maintains the original proportions */
+    object-fit: contain;  /* Ensures the whole photo is visible */
+    display: block;
+    border: 1px solid #eee;
+}
+        
         
         .lab-figure.small {
         max-width: 50px; /* Adjust this number to your preferred size */
