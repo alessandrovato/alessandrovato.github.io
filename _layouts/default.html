@@ -674,6 +674,25 @@ body {
     font-weight: 600;
 }
 
+.member-image {
+    /* Set exactly how wide and tall you want the photo area to be */
+    flex: 0 0 150px;     /* '150px' is the width. You can change this. */
+    height: 150px;        /* Set a fixed height to match */
+    overflow: hidden;    /* Cuts off any part of the photo that doesn't fit */
+    background: #eee;    /* Placeholder color while image loads */
+}
+
+.member-image img {
+    width: 100%;         /* Fills the 150px width */
+    height: 100%;        /* Fills the 150px height */
+    
+    /* THE KEY PROPERTY */
+    object-fit: cover;   /* This crops the photo to fill the square without stretching */
+    
+    object-position: center; /* Ensures faces stay in the middle of the crop */
+    display: block;
+}
+
 /* Mobile Fix: Stack image on top of text on small screens */
 @media (max-width: 600px) {
     .member-card {
