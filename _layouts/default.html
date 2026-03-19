@@ -183,49 +183,40 @@
                 z-index: 9999; /* Keeps it above everything else */
             }
 
-        /* 1. Create the 2-column layout */
 .home-grid {
     display: flex;
-    gap: 30px;
+    gap: 40px;           /* Space between image and text */
     align-items: flex-start;
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-/* 2. Make the text side take up more room (e.g., 60%) */
-.home-text-side {
-    flex: 1.5;
-}
-
-/* 3. Make the image side take up less room (e.g., 40%) */
 .home-image-side {
-    flex: 1;
-    position: sticky; /* Optional: Keeps the image visible as you read */
-    top: 80px;
+    flex: 1;             /* Image takes up about 40% */
+    position: sticky;    /* Pins the image while you scroll the text */
+    top: 100px;
 }
 
-/* 4. Style the side image */
+.home-text-side {
+    flex: 1.5;           /* Text takes up about 60% */
+}
+
 .home-image-side img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    border: 2px solid rgba(255,255,255,0.2);
-    filter: sepia(20%) contrast(1.1); /* Subtle architectural warmth */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 3px solid white;
 }
 
-        
-.side-caption {
-    color: white;
-    font-size: 0.85rem;
-    text-align: center;
-    margin-top: 10px;
-    font-style: italic;
-}
-
-/* --- MOBILE RESPONSIVE --- */
+/* --- MOBILE FIX --- */
 @media (max-width: 900px) {
     .home-grid {
-        flex-direction: column; /* Stacks image below text on phones */
+        flex-direction: column; /* On phones, image goes to the TOP */
+    }
+    
+    .home-image-side {
+        position: static;      /* Don't stick on mobile */
+        width: 100%;
     }
 }
 
