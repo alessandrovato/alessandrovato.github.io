@@ -73,8 +73,11 @@
 
     .bci-card p {
         letter-spacing: 0.2px; /* Slightly wider for a premium feel */
-        padding: 20px 30px;
+        /* padding: 20px 30px; */
+        max-width: 65ch; /* Limits width to about 65 characters per line (ideal for eyes) */
+        line-height: 1.8; /* "Airy" feel */
     }
+    
     .hero-title {
         color: white;
         text-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Adds professional depth */
@@ -85,11 +88,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    }
-
-    .bci-card p {
-        max-width: 65ch; /* Limits width to about 65 characters per line (ideal for eyes) */
-        line-height: 1.8; /* "Airy" feel */
     }
        
         
