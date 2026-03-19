@@ -278,21 +278,21 @@ h2, h3 {
 
 
         
-.home-grid {
+/* .home-grid {
     display: flex;
-    gap: 40px;           /* Space between image and text */
+    gap: 40px;           /* Space between image and text 
     align-items: flex-start;
     margin-top: 30px;
 }
 
 .home-image-side {
-    flex: 1;             /* Image takes up about 40% */
-    position: sticky;    /* Pins the image while you scroll the text */
+    flex: 1;             /* Image takes up about 40% 
+    position: sticky;    /* Pins the image while you scroll the text 
     top: 100px;
 }
 
 .home-text-side {
-    flex: 1.5;           /* Text takes up about 60% */
+    flex: 1.5;           /* Text takes up about 60% 
 }
 
 .home-image-side img {
@@ -301,7 +301,41 @@ h2, h3 {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     border: 3px solid white;
-}
+} */
+
+    .home-grid {
+            display: flex;
+        align-items: stretch; /* This makes both columns the same height */
+        gap: 30px;           /* Puts space between the image and the card */
+        margin-bottom: 30px;
+    }
+
+    .home-image-side {
+        flex: 1;
+        display: flex;       /* Allows the img to fill the wrapper */
+    }
+
+    .home-image-side img {
+        width: 100%;
+        height: 100%;        /* Stretches to match the card height */
+        object-fit: cover;   /* Prevents distortion */
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .home-text-side {
+        flex: 1.5;
+        display: flex;       /* Important so the card inside can stretch */
+    }
+
+    .home-text-side .bci-card {
+        width: 100%;
+        height: 100%;        /* Forces the card to be as tall as the image */
+        margin-bottom: 0;    /* Removes extra bottom margin */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centers the text vertically */
+    }
 
 /* --- MOBILE FIX --- */
 @media (max-width: 900px) {
