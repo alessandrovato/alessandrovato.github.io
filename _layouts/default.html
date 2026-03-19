@@ -276,30 +276,32 @@ h2, h3 {
 
         
         .home-grid {
-            display: flex;
-            gap: 40px;           /* Space between image and text */
-            align-items: flex-start;
-            margin-top: 30px;
-        }
-        
-        .home-image-side {
-            flex: 1;             /* Image takes up about 40% */
-            position: sticky;    /* Pins the image while you scroll the text */
-            top: 100px;
-        }
-        
-        .home-text-side {
-            flex: 1.5;           /* Text takes up about 60% */
-        }
-        
-        .home-image-side img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 3px solid white;
-        }
+    display: flex;
+    align-items: stretch; /* This is the "magic" that forces equal height */
+    gap: 20px;
+    margin-top: 30px;
+}
 
+.home-image-side {
+    flex: 1; /* Takes up equal or proportional width */
+    display: flex; /* Ensures the inner image can fill the container */
+}
+
+.home-image-side img {
+    width: 100%;
+    height: 100%;       /* Fills the entire height of the text card */
+    object-fit: cover;  /* Prevents stretching; crops the image to fit the space */
+    border-radius: 20px; /* Matches your card's modern tech corners */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.home-text-side.bci-card {
+    flex: 1.2;          /* Gives the text slightly more width than the image */
+    margin: 0;          /* Removes default card margins to align perfectly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the text inside the card */
+}
         /* --- MOBILE FIX --- */
         @media (max-width: 900px) {
             .home-grid {
