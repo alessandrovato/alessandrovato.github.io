@@ -10,16 +10,13 @@
         :root {
             --nav-width: 240px;
             --bg-color: #f4f4f4;
-            /* /* --sidebar-color: #004c70; /* CUA Blue/Black  */
-            /*--sidebar-color: #015499; /* CUA Blue/Black */
             --sidebar-color: #005399; /* CUA Blue/Black */
-            /* --accent: #A6192E; /* CUA Red */ 
             --accent: #A11C16; /* CUA Red */
             --card-bg: #ffffff;
             --text-dark: #333;
         }
 
-        { box-sizing: border-box; }
+       * { box-sizing: border-box; } /* endure that the columns don't accidentally push each other */
 
         html { 
             scroll-behavior: smooth; 
@@ -27,16 +24,10 @@
             overflow-x: hidden;
         }
 
-        /* h1, h2, h3 {
-            font-family: 'Playfair Display', serif; /* Elegant, academic look 
-            letter-spacing: -0.5px;
-            font-weight: 700;
-        } */
      
         h2, h3 {
-            margin-top: 0;
-            padding-top: 0; 
-        
+            margin-top: 0 !important;
+            padding-top: 0 !important;
             font-family: 'Inter', sans-serif; 
             font-weight: 700;
             letter-spacing: -0.02em;
@@ -52,26 +43,10 @@
             letter-spacing: -0.03em;    /* Slight tightening makes Inter look like a premium logo */
             color: var(--sidebar-color);
             margin-bottom: 24px;
-            /* border-left: 8px solid var(--accent); /* Adds a "Tech bar" to the left of the main title */ 
-            /* padding-left: 20px; */
-
             background: linear-gradient(90deg, #004c70, #A6192E);
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent;  /* display: inline-block; */
         }
-        
-        
-        /* h1 {
-            transition: all 0.3s ease;
-            letter-spacing: -1.5px; /* Tighter for a bold look 
-            text-transform: capitalize;
-        } */
-        
-        /* h1:hover {
-            color: var(--accent);
-            transform: translateX(5px); /* Subtle slide to the right on hover
-        } */
-        
         
 
         body {
