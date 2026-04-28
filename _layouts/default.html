@@ -345,8 +345,13 @@
         display: flex;
         flex-direction: column;
         justify-content: center; /* Centers the text vertically */
+        padding-top: 10px;    /* Adjust as needed (default is usually 20px) */
+        padding-bottom: 10px; /* Adjust as needed */
     }
-
+    .home-text-side .bci-card h3 {
+        margin-top: 0;        /* Removes the gap before "Our Vision" */
+        margin-bottom: 10px;  /* Reduces space between the title and first paragraph */
+    }
 /* --- MOBILE FIX --- */
 @media (max-width: 900px) {
     .home-grid {
