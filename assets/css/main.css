@@ -600,3 +600,24 @@
         flex: 0 0 200px;
       }
     }
+
+    .latest-news-item {
+    margin-bottom: 1.2rem;
+}
+
+.latest-news-item .v-timeline-date {
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
+}
+
+.latest-news-item h4 {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+}
+
+.latest-news-item img {
+    max-width: 100%;
+    border-radius: 6px;
+}

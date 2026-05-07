@@ -83,21 +83,32 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Select all news items (assuming they are <li> inside #news)
-    const newsItems = document.querySelectorAll("#news li");
+    // Select all timeline items
+    const newsItems = document.querySelectorAll("#news .v-timeline-item");
 
     if (newsItems.length === 0) return;
 
-    // Take the last 3 news items
-    const latest = Array.from(newsItems).slice(-3).reverse();
+    // Take the last 3 items (most recent at the bottom of the timeline)
+    const latestItems = Array.from(newsItems).slice(-3).reverse();
 
-    const latestNewsList = document.getElementById("latest-news-list");
+    const container = document.getElementById("latest-news-list");
 
-    latest.forEach(item => {
-        latestNewsList.appendChild(item.cloneNode(true));
+    latestItems.forEach(item => {
+        // Clone the timeline content only (not the dot/line)
+        const content = item.querySelector(".v-timeline-content").cloneNode(true);
+        const date = item.querySelector(".v-timeline-date").cloneNode(true);
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "latest-news-item";
+
+        wrapper.appendChild(date);
+        wrapper.appendChild(content);
+
+        container.appendChild(wrapper);
     });
 });
 </script>
+``
 
 </body>
 
