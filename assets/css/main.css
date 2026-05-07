@@ -232,7 +232,7 @@
       padding: 0px 0;
       margin-bottom: 0px;
 
-      scroll-margin-top: 0px;
+      scroll-margin-top: 40px;
       border-bottom: 1px solid var(--color-border);
     }
 
