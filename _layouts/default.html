@@ -83,32 +83,29 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Select all timeline items
-    const newsItems = document.querySelectorAll("#news .v-timeline-item");
+    const items = document.querySelectorAll("#news .v-timeline-item");
+    if (items.length === 0) return;
 
-    if (newsItems.length === 0) return;
+    const latest = Array.from(items).slice(-3).reverse();
+    const container = document.getElementById("latest-news-row");
 
-    // Take the last 3 items (most recent at the bottom of the timeline)
-    const latestItems = Array.from(newsItems).slice(-3).reverse();
+    latest.forEach(item => {
+        const date = item.querySelector(".v-timeline-date")?.textContent || "";
+        const title = item.querySelector("h4")?.textContent || "";
+        const text = item.querySelector("p")?.textContent || "";
 
-    const container = document.getElementById("latest-news-list");
+        const row = document.createElement("div");
+        row.className = "latest-news-horizontal";
+        row.innerHTML = `
+            <span class="news-date">${date}</span>
+            <span class="news-title">${title}</span>
+            <span class="news-text">${text}</span>
+        `;
 
-    latestItems.forEach(item => {
-        // Clone the timeline content only (not the dot/line)
-        const content = item.querySelector(".v-timeline-content").cloneNode(true);
-        const date = item.querySelector(".v-timeline-date").cloneNode(true);
-
-        const wrapper = document.createElement("div");
-        wrapper.className = "latest-news-item";
-
-        wrapper.appendChild(date);
-        wrapper.appendChild(content);
-
-        container.appendChild(wrapper);
+        container.appendChild(row);
     });
 });
 </script>
-``
 
 </body>
 
