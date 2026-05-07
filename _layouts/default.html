@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (items.length === 0) return;
 
     const latest = Array.from(items).slice(0, 3);
-
     const list = document.getElementById("latest-news-text");
 
     latest.forEach(item => {
@@ -96,7 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const text  = item.querySelector("p")?.textContent || "";
 
         const li = document.createElement("li");
-        li.textContent = `${date} — ${title}: ${text}`;
+        li.innerHTML = `
+            <span class="v-timeline-date">${date}</span>
+            — <strong>${title}</strong>: ${text}
+        `;
 
         list.appendChild(li);
     });
