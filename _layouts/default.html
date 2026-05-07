@@ -219,11 +219,13 @@
         /* --- MAIN CONTENT AREA --- */
         
         main {
-            padding-top: 10px; /* Reduced from 40px or 60px */
-            margin-left: var(--nav-width); /* Keeps space for sidebar */
+            margin-left: var(--nav-width);
             margin-right: auto;
-            margin-top: 60px;              /* Space for the top header */
-            padding: 40px;
+            margin-top: 60px; /* header height */
+    
+            padding: 10px 40px 40px 40px;
+            /* top right bottom left */
+
             width: calc(100% - var(--nav-width));
             max-width: 1200px;
         } 
