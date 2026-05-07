@@ -86,7 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const items = document.querySelectorAll("#news .v-timeline-item");
     if (items.length === 0) return;
 
-    const latest = Array.from(items).slice(-3).reverse();
+    const latest = Array.from(items).slice(0, 3);
+
     const list = document.getElementById("latest-news-text");
 
     latest.forEach(item => {
