@@ -87,22 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (items.length === 0) return;
 
     const latest = Array.from(items).slice(-3).reverse();
-    const container = document.getElementById("latest-news-row");
+    const list = document.getElementById("latest-news-text");
 
     latest.forEach(item => {
-        const date = item.querySelector(".v-timeline-date")?.textContent || "";
+        const date  = item.querySelector(".v-timeline-date")?.textContent || "";
         const title = item.querySelector("h4")?.textContent || "";
-        const text = item.querySelector("p")?.textContent || "";
+        const text  = item.querySelector("p")?.textContent || "";
 
-        const row = document.createElement("div");
-        row.className = "latest-news-horizontal";
-        row.innerHTML = `
-            <span class="news-date">${date}</span>
-            <span class="news-title">${title}</span>
-            <span class="news-text">${text}</span>
-        `;
+        const li = document.createElement("li");
+        li.textContent = `${date} — ${title}: ${text}`;
 
-        container.appendChild(row);
+        list.appendChild(li);
     });
 });
 </script>
