@@ -78,6 +78,27 @@
             observer.observe(item);
         });
     </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Select all news items (assuming they are <li> inside #news)
+    const newsItems = document.querySelectorAll("#news li");
+
+    if (newsItems.length === 0) return;
+
+    // Take the last 3 news items
+    const latest = Array.from(newsItems).slice(-3).reverse();
+
+    const latestNewsList = document.getElementById("latest-news-list");
+
+    latest.forEach(item => {
+        latestNewsList.appendChild(item.cloneNode(true));
+    });
+});
+</script>
+
 </body>
 
 </html>
