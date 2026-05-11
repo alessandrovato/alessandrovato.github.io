@@ -80,37 +80,36 @@ async function loadPublications() {
       card.className = "publication-card";
 
       card.innerHTML = `
-          <div class="publication-item">
+            <div class="publication-item">
 
-            ${image ? `
-              <div class="pub-thumb">
-                <img src="${image}" alt="">
-              </div>
-            ` : ""}
+              ${image ? `
+                <div class="pub-thumb">
+                  <img src="${image}" alt="">
+                </div>
+              ` : ""}
 
-            <div class="pub-content">
+              <div class="pub-content">
 
-              <h3 class="pub-title">
-                ${doi
-                  ? `<a href="https://doi.org/${doi}" target="_blank">${title}</a>`
-                  : title
-                }
-              </h3>
+                <h3 class="pub-title">
+                  ${doi
+                    ? `<a href="https://doi.org/${doi}" target="_blank">${title}</a>`
+                    : title
+                  }
+                </h3>
 
-              <p class="pub-authors">${authors}</p>
+                <p class="pub-authors">${authors}</p>
 
-              <p class="pub-meta">
-                ${journal} ${year ? `(${year})` : ""}
-              </p>
+                <p class="pub-meta">${journal} ${year ? `(${year})` : ""}</p>
 
-              <div class="pub-links">
-                ${doi ? `<a href="https://doi.org/${doi}" target="_blank">DOI</a>` : ""}
+                <div class="pub-links">
+                  ${doi ? `<a href="https://doi.org/${doi}" target="_blank">DOI</a>` : ""}
+                </div>
+
               </div>
 
             </div>
+          `;
 
-          </div>
-        `;
 
       pubList.appendChild(card);
     });
