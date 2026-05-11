@@ -663,12 +663,11 @@
     width: 100%;
 }
 
-/* =========================================================
-       PUBLICATIONS
-    ========================================================= */
+/* =========================
+   PUBLICATIONS SECTION
+========================= */
 
-
-/*#publications {
+#publications {
   padding: 80px 20px;
 }
 
@@ -679,12 +678,15 @@
   color: #7A0019;
 }
 
+/* =========================
+   PUBLICATION CARD
+========================= */
+
 .publication-card {
   background: white;
-  border-left: 5px solid #7A0019;
-  padding: 24px;
-  margin-bottom: 24px;
   border-radius: 14px;
+  padding: 10px 0;
+  margin-bottom: 24px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.2s ease;
 }
@@ -693,48 +695,15 @@
   transform: translateY(-3px);
 }
 
-.publication-card h3 {
-  margin-bottom: 10px;
-  color: #222;
-  font-size: 1.2rem;
-}
-
-.pub-authors {
-  color: #666;
-  margin-bottom: 8px;
-  font-style: italic;
-}
-
-.pub-journal {
-  color: #444;
-  margin-bottom: 14px;
-}
-
-.pub-links a {
-  display: inline-block;
-  margin-right: 14px;
-  text-decoration: none;
-  color: #7A0019;
-  font-weight: 600;
-}
-
-.pub-links a:hover {
-  text-decoration: underline;
-}*/
-
-
-.publication-card {
-  background: white;
-  border-radius: 14px;
-  padding: 20px 10px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
+/* =========================
+   PUBLICATION ROW
+========================= */
 
 .publication-item {
   display: flex;
   align-items: flex-start;
-  padding: 16px 14px;
+  gap: 14px;
+  padding: 16px 18px;
   border-bottom: 1px solid #eee;
 }
 
@@ -742,17 +711,50 @@
   border-bottom: none;
 }
 
-.pub-icon {
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+/* =========================
+   THUMBNAIL / ICON BOX
+========================= */
+
+.pub-thumb {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #f2f2f2;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 14px;
-  flex-shrink: 0;
-  background: #f6f6f6;
-  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+/* IMAGE fills box */
+.pub-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FALLBACK ICON fills same space */
+.pub-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 26px;
+  color: #666;
+  line-height: 1;
+}
+
+/* =========================
+   TEXT CONTENT
+========================= */
+
+.pub-content {
+  flex: 1;
 }
 
 .pub-content h3 {
@@ -774,44 +776,22 @@
   color: #444;
 }
 
-/*.pub-thumb {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  margin-right: 16px;
-  object-fit: cover;
-  background: #f2f2f2;
-}
-*/
-.publication-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+/* =========================
+   LINKS
+========================= */
+
+.pub-links {
+  margin-top: 8px;
 }
 
-/* FIXED LEFT COLUMN */
-.pub-thumb {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #f2f2f2;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.pub-links a {
+  margin-right: 14px;
+  text-decoration: none;
+  color: #7A0019;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-/* IMAGE INSIDE SLOT */
-.pub-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* FALLBACK ICON */
-.pub-fallback {
-  font-size: 20px;
-  color: #888;
+.pub-links a:hover {
+  text-decoration: underline;
 }
