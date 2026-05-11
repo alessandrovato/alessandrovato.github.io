@@ -48,56 +48,38 @@
 }
 
 /* =========================
-   THUMBNAIL BOX (IMAGE + FALLBACK)
+   THUMBNAIL / IMAGE
 ========================= */
 
 .pub-thumb {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.pub-fallback {
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  font-size: 22px; /* controls icon size */
-  line-height: 1;
-}
-
-
-
-/* image fills box */
+/* publication image */
 .pub-thumb img {
-  width: 100%;
-  height: 100%;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
-/* fallback icon fills same space */
+/* fallback icon (no image) */
 .pub-fallback {
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-size: 26px;
   color: #777;
-}
 
-.paper-thumb.placeholder {
   background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
 }
-
-
 
 /* =========================
    TEXT CONTENT
@@ -105,6 +87,7 @@
 
 .pub-content {
   flex: 1;
+  min-width: 0;
 }
 
 .pub-content h3 {
@@ -119,6 +102,10 @@
   font-size: 0.9rem;
   color: #666;
   font-style: italic;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
 }
 
 .pub-journal {
@@ -146,4 +133,3 @@
 .pub-links a:hover {
   text-decoration: underline;
 }
-
