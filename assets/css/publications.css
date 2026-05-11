@@ -1,35 +1,36 @@
 
 /* =========================
-   PUBLICATIONS SECTION
+   SECTION
 ========================= */
 
 #publications {
-  padding: 40px;
+  padding: 30px 20px;
 }
 
 /* Title */
 .section-title {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 40px;
+  text-align: left;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
   color: #7A0019;
+  font-weight: 600;
 }
 
 /* =========================
-   CARD
+   LIST ITEM (no card look)
 ========================= */
 
 .publication-card {
-  background: #fff;
-  border-radius: 14px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  overflow: hidden;
-  transition: transform 0.2s ease;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0;
 }
 
+/* hover subtle like Scholar */
 .publication-card:hover {
-  transform: translateY(-3px);
+  background: #fafafa;
 }
 
 /* =========================
@@ -38,13 +39,10 @@
 
 .publication-item {
   display: flex;
-  flex-direction: row-reverse; /* thumbnail RIGHT */
+  flex-direction: row-reverse; /* image RIGHT */
 
   align-items: flex-start;
   gap: 14px;
-
-  padding: 16px 18px;
-  border-bottom: 1px solid #eee;
 }
 
 /* =========================
@@ -52,31 +50,26 @@
 ========================= */
 
 .pub-thumb {
-  width: 80px;
-  height: 80px;
-
+  width: 70px;
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background: transparent;
 }
 
 /* image */
 .pub-thumb img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: auto;
+  border-radius: 4px;
   object-fit: cover;
-  border-radius: 8px;
 }
 
-/* fallback icon (no square!) */
+/* fallback icon */
 .pub-fallback {
-  font-size: 24px;
+  font-size: 18px;
   color: #777;
-  line-height: 1;
 }
 
 /* =========================
@@ -88,50 +81,43 @@
   min-width: 0;
 }
 
-/* title */
+/* title (Scholar-like: link feel) */
 .pub-content h3 {
   margin: 0;
-  font-size: 1.05rem;
-  color: #222;
-  line-height: 1.3;
-}
-
-/* AUTHORS (FULL WIDTH FIX) */
-.pub-authors {
-  margin: 4px 0;
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
-
-  width: 100%;
-  display: block;
-
-  white-space: normal;
-  overflow-wrap: anywhere;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a0dab;
   line-height: 1.4;
 }
 
-/* journal */
-.pub-journal {
-  margin: 0;
+/* authors */
+.pub-authors {
+  margin: 2px 0;
   font-size: 0.9rem;
   color: #444;
+  font-style: normal;
+}
+
+/* journal line */
+.pub-journal {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
 }
 
 /* =========================
-   LINKS
+   LINKS (Scholar style)
 ========================= */
 
 .pub-links {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .pub-links a {
-  margin-right: 14px;
+  margin-right: 10px;
+  font-size: 0.85rem;
+  color: #1a0dab;
   text-decoration: none;
-  color: #7A0019;
-  font-weight: 600;
-  font-size: 0.9rem;
 }
 
 .pub-links a:hover {
