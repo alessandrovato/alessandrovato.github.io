@@ -124,26 +124,60 @@ async function loadPublications() {
 
     const entries = bibtexParse.toJSON(bibtexText);
 
+    // Sort by year (newest first)
+    entries.sort((a, b) => {
+      return (b.entryTags.year || 0) - (a.entryTags.year || 0);
+    });
+
     const pubList = document.getElementById("pub-list");
+
+    pubList.innerHTML = "";
 
     entries.forEach(entry => {
 
       const tags = entry.entryTags;
 
-      pubList.innerHTML += `
-        <div class="publication-card">
-          <h3>${tags.title || ""}</h3>
+      const title = tags.title || "Untitled";
+      const authors = tags.author || "";
+      const year = tags.year || "";
+      const journal = tags.journal || tags.booktitle || "";
+      const doi = tags.doi || "";
+      const image = tags.image || "";
 
-          <p class="pub-authors">
-            ${tags.author || ""}
-          </p>
+      const pubItem = document.createElement("div");
+      pubItem.className = "publication-card";
 
-          <p class="pub-journal">
-            <em>${tags.journal || tags.booktitle || ""}</em>
-            (${tags.year || ""})
-          </p>
+      pubItem.innerHTML = `
+        <div class="publication-item">
+
+          ${image
+            ? `<img class="pub-thumb" src="${image}" alt="publication image">`
+            : `<div class="pub-thumb">📄</div>`
+          }
+
+          <div class="pub-content">
+
+            <h3>${title}</h3>
+
+            <p class="pub-authors">${authors}</p>
+
+            <p class="pub-journal">
+              <em>${journal}</em> (${year})
+            </p>
+
+            <div class="pub-links">
+              ${doi
+                ? `<a href="https://doi.org/${doi}" target="_blank">DOI</a>`
+                : ""
+              }
+            </div>
+
+          </div>
+
         </div>
       `;
+
+      pubList.appendChild(pubItem);
     });
 
   } catch(error) {
@@ -151,12 +185,13 @@ async function loadPublications() {
     console.error(error);
 
     document.getElementById("pub-list").innerHTML =
-      "<p>Error loading publications.</p>";
+      "<p style='color:red;'>Error loading publications.</p>";
   }
 }
 
 loadPublications();
 </script>
+
 
 
 </body>
