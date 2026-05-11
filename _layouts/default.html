@@ -107,20 +107,31 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- script for publications -->
 
 
-<script src="https://cdn.jsdelivr.net/npm/bibtex-js-parser/umd/bibtex-js-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bibtex-js-parser/build/bibtexParse.min.js"></script>
 
 <script>
-fetch("publications.bib")
-  .then(response => response.text())
-  .then(text => {
+async function loadPublications() {
+  try {
 
-    const entries = bibtexParse.toJSON(text);
+    const response = await fetch("publications.bib");
+
+    if (!response.ok) {
+      throw new Error("Cannot load publications.bib");
+    }
+
+    const bibtexText = await response.text();
+
+    console.log(bibtexText);
+
+    const entries = bibtexParse.toJSON(bibtexText);
 
     entries.sort((a, b) => {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
 
     const pubList = document.getElementById("pub-list");
+
+    pubList.innerHTML = "";
 
     entries.forEach(entry => {
 
@@ -131,7 +142,6 @@ fetch("publications.bib")
       const year = tags.year || "";
       const journal = tags.journal || tags.booktitle || "";
       const doi = tags.doi || "";
-      const url = tags.url || (doi ? `https://doi.org/${doi}` : "#");
 
       const div = document.createElement("div");
       div.className = "publication-card";
@@ -149,18 +159,26 @@ fetch("publications.bib")
 
         <div class="pub-links">
           ${doi ? `<a href="https://doi.org/${doi}" target="_blank">DOI</a>` : ""}
-          ${url ? `<a href="${url}" target="_blank">Link</a>` : ""}
         </div>
       `;
 
       pubList.appendChild(div);
     });
-  })
-  .catch(error => {
-    console.error("Error loading BibTeX:", error);
-  });
-</script>
 
+  } catch(error) {
+
+    console.error(error);
+
+    document.getElementById("pub-list").innerHTML = `
+      <p style="color:red;">
+        Error loading publications.
+      </p>
+    `;
+  }
+}
+
+loadPublications();
+</script>
 
 
 </body>
