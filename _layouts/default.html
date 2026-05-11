@@ -7,105 +7,101 @@
 
   <title>BCIRehab Lab | Neural Engineering</title>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  />
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  />
-
+  <!-- MAIN CSS -->
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- PUBLICATIONS CSS (FIXED LOCATION) -->
+  <link rel="stylesheet" href="assets/css/publications.css">
 
 </head>
 
-
 <body>
 
-    <!-- <header class="top-header">
-        <div class="header-content">
-            <span class="lab-name">BCIRehab Lab</span>
-            <span class="uni-name">The Catholic University of America</span>
-        </div>
-    </header> -->
+  <!-- HEADER -->
+  <header class="top-header">
+    <div class="header-content">
 
-    <header class="top-header">
-        <div class="header-content">
-            <div class="header-left">
-                <a href="/" class="logo-link">
-                    <img src="assets/images/lab-logo.png" alt="BCIRehab Logo" class="header-logo">
-                </a>
-                <span class="lab-name">BCI Rehab Lab</span>
-            </div>
-    
-            <div class="header-right">
-                <a href="https://www.catholic.edu" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/cua-logo.png" alt="CUA Logo" class="uni-logo">
-                </a>
-</div>
+      <div class="header-left">
+        <a href="/" class="logo-link">
+          <img src="assets/images/lab-logo.png" alt="BCIRehab Logo" class="header-logo">
+        </a>
+        <span class="lab-name">BCI Rehab Lab</span>
+      </div>
+
+      <div class="header-right">
+        <a href="https://www.catholic.edu" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/cua-logo.png" alt="CUA Logo" class="uni-logo">
+        </a>
+      </div>
+
     </div>
-    </header>
-    
-    {% include nav.html %}
+  </header>
 
-    <main>
-        
-        {{ content }}
-    </main>
+  <!-- NAV (Jekyll) -->
+  {% include nav.html %}
 
-    <script>
-        const observerOptions = {
-            threshold: 0.2 // Trigger when 20% of the item is visible
-        };
-    
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, observerOptions);
-    
-        // Tell the observer to watch all timeline items
-        document.querySelectorAll('.v-timeline-item').forEach((item) => {
-            observer.observe(item);
-        });
-    </script>
+  <main>
+    {{ content }}
+  </main>
 
+  <!-- =========================
+       SCRIPTS (ORDER MATTERS)
+  ========================== -->
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+  <!-- Intersection Observer -->
+  <script>
+    const observerOptions = { threshold: 0.2 };
 
-    const items = document.querySelectorAll("#news .v-timeline-item");
-    if (items.length === 0) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
 
-    const latest = Array.from(items).slice(0, 4);
-    const list = document.getElementById("latest-news-text");
+    document.querySelectorAll('.v-timeline-item').forEach((item) => {
+      observer.observe(item);
+    });
+  </script>
 
-    latest.forEach(item => {
-        const date  = item.querySelector(".v-timeline-date")?.textContent || "";
+  <!-- News script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const items = document.querySelectorAll("#news .v-timeline-item");
+      if (items.length === 0) return;
+
+      const latest = Array.from(items).slice(0, 4);
+      const list = document.getElementById("latest-news-text");
+
+      latest.forEach(item => {
+        const date = item.querySelector(".v-timeline-date")?.textContent || "";
         const title = item.querySelector("h4")?.textContent || "";
-        const text  = item.querySelector("p")?.textContent || "";
+        const text = item.querySelector("p")?.textContent || "";
 
         const li = document.createElement("li");
         li.innerHTML = `
-            <span class="v-timeline-date">${date}</span>
-            — <strong>${title}</strong>: ${text}
+          <span class="v-timeline-date">${date}</span>
+          — <strong>${title}</strong>: ${text}
         `;
 
         list.appendChild(li);
+      });
+
     });
-});
-</script>
+  </script>
 
-<link rel="stylesheet" href="assets/css/publications.css">
+  <!-- =========================
+       PUBLICATIONS SYSTEM
+  ========================== -->
 
-<script src="https://unpkg.com/bibtex-parse-js@0.0.24/bibtexParse.js"></script>
-<script src="assets/js/publications.js"></script>
-
+  <script src="https://unpkg.com/bibtex-parse-js@0.0.24/bibtexParse.js"></script>
+  <script src="assets/js/publications.js"></script>
 
 </body>
 
