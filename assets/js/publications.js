@@ -58,7 +58,9 @@ async function loadPublications() {
     });
 
     // ONLY LAST 5
-    const latestEntries = entries.slice(0, 5);
+    const isHomePage = window.location.pathname.includes("index");
+
+    const latestEntries = isHomePage ? entries.slice(0, 5) : entries;
 
     const pubList = document.getElementById("pub-list");
 
