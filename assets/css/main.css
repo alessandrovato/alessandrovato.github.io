@@ -774,7 +774,7 @@
   color: #444;
 }
 
-.pub-thumb {
+/*.pub-thumb {
   width: 60px;
   height: 60px;
   border-radius: 10px;
@@ -782,7 +782,7 @@
   object-fit: cover;
   background: #f2f2f2;
 }
-
+*/
 .publication-item {
   display: flex;
   align-items: flex-start;
