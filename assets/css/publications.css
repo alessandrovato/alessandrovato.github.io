@@ -86,6 +86,11 @@
   margin: 2px 0;
   font-size: 0.9rem;
   color: #444;
+  font-style: normal;
+
+  white-space: nowrap;      /* ⬅ prevents line breaks */
+  overflow: hidden;         /* ⬅ prevents overflow */
+  text-overflow: ellipsis;  /* ⬅ adds "..." if too long */
 }
 
 /* JOURNAL + YEAR */
