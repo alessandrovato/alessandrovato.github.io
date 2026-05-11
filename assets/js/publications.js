@@ -1,3 +1,39 @@
+function shortenAuthors(authorString) {
+
+  return authorString
+    .split(" and ")
+    .map(author => {
+
+      author = author.trim();
+
+      // Format: "Last, First"
+      if (author.includes(",")) {
+
+        const [last, first] = author.split(",");
+
+        const initials = first
+          .trim()
+          .split(/\s+/)
+          .map(name => name.charAt(0) + ".")
+          .join(" ");
+
+        return `${initials} ${last.trim()}`;
+      }
+
+      // Format: "First Last"
+      const parts = author.split(/\s+/);
+
+      const last = parts.pop();
+
+      const initials = parts
+        .map(name => name.charAt(0) + ".")
+        .join(" ");
+
+      return `${initials} ${last}`;
+    })
+    .join(", ");
+}
+
 
 async function loadPublications() {
 
@@ -13,6 +49,7 @@ async function loadPublications() {
 
     const entries = bibtexParse.toJSON(bibtexText);
 
+    // Sort by year descending
     entries.sort((a, b) => {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
@@ -26,30 +63,45 @@ async function loadPublications() {
       const tags = entry.entryTags;
 
       const title = tags.title || "Untitled";
-      const authors = tags.author || "";
+
+      // Shortened author names
+      const authors = shortenAuthors(tags.author || "");
+
       const year = tags.year || "";
+
       const journal = tags.journal || tags.booktitle || "";
+
       const doi = tags.doi || "";
+
       const image = tags.image || "";
 
       const card = document.createElement("div");
+
       card.className = "publication-card";
 
       card.innerHTML = `
         <div class="publication-item">
 
-          <div class="pub-thumb">
-            ${image
-              ? `<img src="${image}" alt="">`
-              : `<div class="pub-fallback">📄</div>`
-            }
-          </div>
+          ${image
+            ? `
+              <div class="pub-thumb">
+                <img src="${image}" alt="${title}">
+              </div>
+            `
+            : `
+              <div class="pub-fallback">
+                📄
+              </div>
+            `
+          }
 
           <div class="pub-content">
 
             <h3>${title}</h3>
 
-            <p class="pub-authors">${authors}</p>
+            <p class="pub-authors">
+              ${authors}
+            </p>
 
             <p class="pub-journal">
               <em>${journal}</em> (${year})
