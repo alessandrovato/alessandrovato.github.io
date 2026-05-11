@@ -124,7 +124,7 @@ async function loadPublications() {
 
     const entries = bibtexParse.toJSON(bibtexText);
 
-    // Sort by year (newest first)
+    // Sort newest first
     entries.sort((a, b) => {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
@@ -144,16 +144,18 @@ async function loadPublications() {
       const doi = tags.doi || "";
       const image = tags.image || "";
 
-      const pubItem = document.createElement("div");
-      pubItem.className = "publication-card";
+      const card = document.createElement("div");
+      card.className = "publication-card";
 
-      pubItem.innerHTML = `
+      card.innerHTML = `
         <div class="publication-item">
 
-          ${image
-            ? `<img class="pub-thumb" src="${image}" alt="publication image">`
-            : `<div class="pub-thumb">📄</div>`
-          }
+          <div class="pub-thumb">
+            ${image
+              ? `<img src="${image}" alt="publication image">`
+              : `<div class="pub-fallback">📄</div>`
+            }
+          </div>
 
           <div class="pub-content">
 
@@ -177,10 +179,10 @@ async function loadPublications() {
         </div>
       `;
 
-      pubList.appendChild(pubItem);
+      pubList.appendChild(card);
     });
 
-  } catch(error) {
+  } catch (error) {
 
     console.error(error);
 
