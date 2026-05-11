@@ -3,7 +3,7 @@ async function loadPublications() {
 
   try {
 
-    const response = await fetch("/publications.bib");
+    const response = await fetch("./publications.bib");
 
     if (!response.ok) {
       throw new Error("Cannot load publications.bib");
