@@ -104,9 +104,6 @@ async function loadPublications() {
 
                 <div class="pub-links">
                   ${doi ? `<a href="https://doi.org/${doi}" target="_blank">DOI</a>` : ""}
-                  // <a href="#">Cited by</a>
-                  // <a href="#">PDF</a>
-                  // <a href="#">Versions</a>
                 </div>
 
               </div>
