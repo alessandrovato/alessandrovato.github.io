@@ -89,22 +89,14 @@ async function loadPublications() {
               ` : ""}
 
               <div class="pub-content">
-              
-
                 <h3 class="pub-title">
-                  ${doi
-                    ? `<a href="https://doi.org/${doi}" target="_blank">${title}</a>`
-                    : title
-                  }
+                  ${doi ? `<a href="https://doi.org/${doi}" target="_blank">${title}</a>` : title}
                 </h3>
 
                 <p class="pub-authors">${authors}</p>
 
                 <p class="pub-meta">${journal} ${year ? `(${year})` : ""}</p>
-
-                <div class="pub-links">
-                  ${doi ? `<a href="https://doi.org/${doi}" target="_blank">DOI</a>` : ""}
-                </div>
+                
 
               </div>
 
