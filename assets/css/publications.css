@@ -29,7 +29,7 @@
 
 .publication-item {
   display: flex;
-  flex-direction: row-reverse; /* thumbnail RIGHT */
+  flex-direction: row;
   gap: 12px;
   align-items: flex-start;
 }
