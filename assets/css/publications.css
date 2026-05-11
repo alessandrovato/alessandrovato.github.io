@@ -47,7 +47,7 @@
   border-bottom: none;
 }
 
-/* =========================
+//* =========================
    THUMBNAIL / IMAGE
 ========================= */
 
@@ -56,6 +56,10 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 /* publication image */
@@ -66,19 +70,23 @@
   border-radius: 8px;
 }
 
-/* fallback icon (no image) */
+/* fallback icon ONLY */
 .pub-fallback {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 26px;
+  font-size: 24px;
   color: #777;
 
-  background: transparent;
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  width: auto;
+  height: auto;
   padding: 0;
   margin: 0;
-  line-height: 1;
 }
 
 /* =========================
