@@ -1,4 +1,7 @@
+
 function shortenAuthors(authorString) {
+
+  if (!authorString) return "";
 
   return authorString
     .split(" and ")
@@ -6,7 +9,7 @@ function shortenAuthors(authorString) {
 
       author = author.trim();
 
-      // Format: "Last, First"
+      // "Last, First"
       if (author.includes(",")) {
 
         const [last, first] = author.split(",");
@@ -14,19 +17,19 @@ function shortenAuthors(authorString) {
         const initials = first
           .trim()
           .split(/\s+/)
-          .map(name => name.charAt(0) + ".")
+          .map(n => n.charAt(0) + ".")
           .join(" ");
 
         return `${initials} ${last.trim()}`;
       }
 
-      // Format: "First Last"
+      // "First Last"
       const parts = author.split(/\s+/);
 
       const last = parts.pop();
 
       const initials = parts
-        .map(name => name.charAt(0) + ".")
+        .map(n => n.charAt(0) + ".")
         .join(" ");
 
       return `${initials} ${last}`;
@@ -49,83 +52,73 @@ async function loadPublications() {
 
     const entries = bibtexParse.toJSON(bibtexText);
 
-    // Sort by year descending
+    // sort newest first
     entries.sort((a, b) => {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
 
+    // ONLY LAST 5
     const latestEntries = entries.slice(0, 5);
 
     const pubList = document.getElementById("pub-list");
 
     pubList.innerHTML = "";
 
-    /*entries.forEach(entry => {*/
-
     latestEntries.forEach(entry => {
 
       const tags = entry.entryTags;
 
       const title = tags.title || "Untitled";
-
-      // Shortened author names
       const authors = shortenAuthors(tags.author || "");
-
       const year = tags.year || "";
-
       const journal = tags.journal || tags.booktitle || "";
-
       const doi = tags.doi || "";
-
       const image = tags.image || "";
 
       const card = document.createElement("div");
-
       card.className = "publication-card";
 
       card.innerHTML = `
-            <div class="publication-item">
+        <div class="publication-item">
 
-              ${image ? `
-                <div class="pub-thumb">
-                  <img src="${image}" alt="">
-                </div>
-              ` : ""}
-
-              <div class="pub-content">
-                <h3 class="pub-title">
-                  ${doi ? `<a href="https://doi.org/${doi}" target="_blank">${title}</a>` : title}
-                </h3>
-
-                <p class="pub-authors">${authors}</p>
-
-                <p class="pub-meta">${journal} ${year ? `(${year})` : ""}</p>
-                
-
-              </div>
-
+          ${image ? `
+            <div class="pub-thumb">
+              <img src="${image}" alt="">
             </div>
-          `;
+          ` : ""}
 
+          <div class="pub-content">
+
+            <h3 class="pub-title">
+              ${doi
+                ? `<a href="https://doi.org/${doi}" target="_blank">${title}</a>`
+                : title
+              }
+            </h3>
+
+            <p class="pub-authors">${authors}</p>
+
+            <p class="pub-meta">
+              ${journal} ${year ? `(${year})` : ""}
+            </p>
+
+          </div>
+
+        </div>
+      `;
 
       pubList.appendChild(card);
     });
 
+    // SEE ALL LINK
     const seeAll = document.createElement("div");
-    seeAll.style.marginTop = "15px";
+    seeAll.className = "pub-see-all";
+
     seeAll.innerHTML = `
-      <a href="publications.html" style="
-        color: #7A0019;
-        font-weight: 600;
-        text-decoration: none;
-      ">
-        → See all publications
-      </a>
+      <a href="publications.html">→ See all publications</a>
     `;
 
     pubList.appendChild(seeAll);
-
-
 
   } catch (error) {
 
