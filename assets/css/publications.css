@@ -141,5 +141,10 @@
   text-decoration: underline;
 }
 
-
-
+.paper-thumb.no-image {
+  background: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  display: inline-flex;
+}
