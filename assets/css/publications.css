@@ -52,18 +52,24 @@
 ========================= */
 
 .pub-thumb {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #f2f2f2;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  overflow: hidden;
 }
+
+.pub-fallback {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 22px; /* controls icon size */
+  line-height: 1;
+}
+
+
 
 /* image fills box */
 .pub-thumb img {
@@ -141,10 +147,3 @@
   text-decoration: underline;
 }
 
-.paper-thumb.no-image {
-  background: none;
-  width: auto;
-  height: auto;
-  padding: 0;
-  display: inline-flex;
-}
