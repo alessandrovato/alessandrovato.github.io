@@ -9,7 +9,6 @@ function shortenAuthors(authorString) {
 
       author = author.trim();
 
-      // "Last, First"
       if (author.includes(",")) {
 
         const [last, first] = author.split(",");
@@ -23,7 +22,6 @@ function shortenAuthors(authorString) {
         return `${initials} ${last.trim()}`;
       }
 
-      // "First Last"
       const parts = author.split(/\s+/);
 
       const last = parts.pop();
@@ -57,9 +55,8 @@ async function loadPublications() {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
 
-    // ONLY LAST 5
-
-    const latestEntries = isHomePage ? entries.slice(0, 5) : entries;
+    // ✅ FIXED: always show ONLY 5
+    const latestEntries = entries.slice(0, 5);
 
     const pubList = document.getElementById("pub-list");
 
