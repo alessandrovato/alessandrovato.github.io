@@ -1,0 +1,31 @@
+<section id="publications">
+  <h2>Publications</h2>
+  <div id="pub-list"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bibtex-js-parser/umd/bibtex-js-parser.min.js"></script>
+<script>
+fetch("publications.bib")
+  .then(response => response.text())
+  .then(text => {
+    const entries = bibtexParse.toJSON(text);
+
+    const pubList = document.getElementById("pub-list");
+
+    entries.forEach(entry => {
+      const tags = entry.entryTags;
+
+      const div = document.createElement("div");
+      div.className = "publication-card";
+
+      div.innerHTML = `
+        <h3>${tags.title}</h3>
+        <p>${tags.author}</p>
+        <p><em>${tags.journal || ""}</em>, ${tags.year}</p>
+        <a href="https://doi.org/${tags.doi}">DOI</a>
+      `;
+
+      pubList.appendChild(div);
+    });
+  });
+</script>

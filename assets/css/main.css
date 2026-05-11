@@ -662,3 +662,62 @@
 .latest-news-anchor:hover::after {
     width: 100%;
 }
+
+/* =========================================================
+       PUBLICATIONS
+    ========================================================= */
+
+
+#publications {
+  padding: 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #7A0019;
+}
+
+.publication-card {
+  background: white;
+  border-left: 5px solid #7A0019;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.publication-card:hover {
+  transform: translateY(-3px);
+}
+
+.publication-card h3 {
+  margin-bottom: 10px;
+  color: #222;
+  font-size: 1.2rem;
+}
+
+.pub-authors {
+  color: #666;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.pub-journal {
+  color: #444;
+  margin-bottom: 14px;
+}
+
+.pub-links a {
+  display: inline-block;
+  margin-right: 14px;
+  text-decoration: none;
+  color: #7A0019;
+  font-weight: 600;
+}
+
+.pub-links a:hover {
+  text-decoration: underline;
+}
