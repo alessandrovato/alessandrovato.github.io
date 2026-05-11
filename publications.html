@@ -1,38 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Publications</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: default
+title: Publications
+---
 
-  <link rel="stylesheet" href="style.css">
-</head>
+<section class="page-hero">
+    <div class="container">
+        <h1>Publications</h1>
+        <p>
+            Full list of peer-reviewed publications and conference papers.
+        </p>
+    </div>
+</section>
 
-<body>
+<section class="content-section">
+    <div class="container">
 
-  <!-- =========================
-       HEADER / TITLE
-  ========================== -->
+        <div id="pub-list"></div>
 
-  <section id="publications">
+    </div>
+</section>
 
-    <h1 class="section-title">Publications</h1>
+<!-- BibTeX parser -->
+<script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js/dist/bibtexParse.min.js"></script>
 
-    <!-- Publication list will be injected here -->
-    <div id="pub-list"></div>
-
-  </section>
-
-  <!-- =========================
-       SCRIPTS
-  ========================== -->
-
-  <!-- BibTeX parser (make sure you already include this in your project) -->
-  <script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js@0.0.1/bibtexParse.min.js"></script>
-
-  <!-- Your publications script -->
-  <script src="publications.js"></script>
-
-</body>
-</html>
+<!-- Your script -->
+<script src="/publications.js"></script>
