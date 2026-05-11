@@ -54,11 +54,15 @@ async function loadPublications() {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
 
+    const latestEntries = entries.slice(0, 5);
+
     const pubList = document.getElementById("pub-list");
 
     pubList.innerHTML = "";
 
-    entries.forEach(entry => {
+    /*entries.forEach(entry => {*/
+
+    latestEntries.forEach(entry => {
 
       const tags = entry.entryTags;
 
@@ -106,6 +110,22 @@ async function loadPublications() {
 
       pubList.appendChild(card);
     });
+
+    const seeAll = document.createElement("div");
+    seeAll.style.marginTop = "15px";
+    seeAll.innerHTML = `
+      <a href="publications.html" style="
+        color: #7A0019;
+        font-weight: 600;
+        text-decoration: none;
+      ">
+        → See all publications
+      </a>
+    `;
+
+    pubList.appendChild(seeAll);
+
+
 
   } catch (error) {
 
