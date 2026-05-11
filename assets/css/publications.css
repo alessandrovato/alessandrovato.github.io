@@ -4,45 +4,34 @@
 ========================= */
 
 #publications {
-  padding: 30px 20px;
-}
-
-/* Title */
-.section-title {
-  text-align: left;
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  color: #7A0019;
-  font-weight: 600;
+  padding: 20px 10px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* =========================
-   LIST ITEM (no card look)
+   ITEM (no card look)
 ========================= */
 
 .publication-card {
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
-  box-shadow: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e5e5;
   background: transparent;
-  border-radius: 0;
 }
 
-/* hover subtle like Scholar */
 .publication-card:hover {
   background: #fafafa;
 }
 
 /* =========================
-   ROW LAYOUT
+   LAYOUT
 ========================= */
 
 .publication-item {
   display: flex;
-  flex-direction: row-reverse; /* image RIGHT */
-
+  flex-direction: row-reverse; /* thumbnail RIGHT */
+  gap: 12px;
   align-items: flex-start;
-  gap: 14px;
 }
 
 /* =========================
@@ -52,28 +41,22 @@
 .pub-thumb {
   width: 70px;
   flex-shrink: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* image */
 .pub-thumb img {
   width: 70px;
   height: auto;
   border-radius: 4px;
-  object-fit: cover;
 }
 
-/* fallback icon */
+/* fallback */
 .pub-fallback {
   font-size: 18px;
   color: #777;
 }
 
 /* =========================
-   TEXT BLOCK
+   TEXT
 ========================= */
 
 .pub-content {
@@ -81,32 +64,39 @@
   min-width: 0;
 }
 
-/* title (Scholar-like: link feel) */
-.pub-content h3 {
+/* TITLE (Google Scholar style) */
+.pub-title {
   margin: 0;
   font-size: 1rem;
   font-weight: 500;
-  color: #1a0dab;
   line-height: 1.4;
 }
 
-/* authors */
+.pub-title a {
+  color: #1a0dab;
+  text-decoration: none;
+}
+
+.pub-title a:hover {
+  text-decoration: underline;
+}
+
+/* AUTHORS */
 .pub-authors {
   margin: 2px 0;
   font-size: 0.9rem;
   color: #444;
-  font-style: normal;
 }
 
-/* journal line */
-.pub-journal {
+/* JOURNAL + YEAR */
+.pub-meta {
   margin: 0;
   font-size: 0.85rem;
   color: #666;
 }
 
 /* =========================
-   LINKS (Scholar style)
+   LINKS
 ========================= */
 
 .pub-links {
@@ -114,10 +104,10 @@
 }
 
 .pub-links a {
-  margin-right: 10px;
   font-size: 0.85rem;
   color: #1a0dab;
   text-decoration: none;
+  margin-right: 12px;
 }
 
 .pub-links a:hover {
