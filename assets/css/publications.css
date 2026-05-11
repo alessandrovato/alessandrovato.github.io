@@ -84,6 +84,15 @@
   color: #777;
 }
 
+.paper-thumb.placeholder {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 /* =========================
    TEXT CONTENT
 ========================= */
@@ -131,3 +140,6 @@
 .pub-links a:hover {
   text-decoration: underline;
 }
+
+
+
