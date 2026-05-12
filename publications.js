@@ -33,8 +33,9 @@ function shortenAuthors(authorString) {
 function renderSection(title, list, container) {
   if (list.length === 0) return;
 
+  const isFirst = container.children.length === 0;
   const section = document.createElement("div");
-  section.innerHTML = `<h2 style="margin-top:30px;">${title}</h2>`;
+  section.innerHTML = `<h2 style="margin-top:${isFirst ? '0' : '30px'};">${title}</h2>`;
 
   list.forEach(entry => {
     const tags = entry.entryTags;
@@ -44,6 +45,10 @@ function renderSection(title, list, container) {
     const journal = tags.journal || tags.booktitle || "";
     const doi = tags.doi || "";
     const image = tags.image || "";
+
+    const typeIcon = entry.entryType === "inproceedings" ? "🖊️"
+                   : entry.entryType === "book" ? "📖"
+                   : "📄";
 
     const card = document.createElement("div");
     card.className = "publication-card";
@@ -60,7 +65,7 @@ function renderSection(title, list, container) {
                 : `<img src="${image}" alt="">`
               }
             `
-            : `<div class="pub-fallback">📄</div>`
+            : `<div class="pub-fallback">${typeIcon}</div>`
           }
         </div>
 
