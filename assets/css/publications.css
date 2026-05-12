@@ -27,21 +27,23 @@
    LAYOUT
 ========================= */
 
-/*.publication-item {
+.publication-item {
   display: flex;
   flex-direction: row;
   gap: 12px;
   align-items: flex-start;
-}*/
+  width: 100%;
 
-.publication-item {
+}
+
+/*.publication-item {
   display: flex;
-  flex-direction: row-reverse; /* image on RIGHT */
+  flex-direction: row-reverse; /* image on RIGHT 
   align-items: flex-start;
   gap: 14px;
 
   width: 100%;
-}
+}*/
 
 /* =========================
    THUMBNAIL
@@ -64,26 +66,19 @@
 }
 */
 
-.pub-thumb img:hover {
-  transform: scale(1.35);
 
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-
-  position: relative;
-  z-index: 1000;
-}
 
 
 .pub-thumb {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
 
   flex-shrink: 0;
 }
 
 .pub-thumb img {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
 
   object-fit: cover; /* keeps square shape clean */
 
@@ -94,6 +89,14 @@
               box-shadow 0.25s ease;
 
   cursor: pointer;
+}
+
+
+.pub-thumb img:hover {
+  transform: scale(1.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 1000;
 }
 
 
