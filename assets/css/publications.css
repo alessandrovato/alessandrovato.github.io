@@ -70,14 +70,14 @@
 
 
 .pub-thumb {
-  width: 80px;
+  width: 120px;
   height: 80px;
 
   flex-shrink: 0;
 }
 
 .pub-thumb img {
-  width: 80px;
+  width: 120px;
   height: 80px;
 
   object-fit: cover; /* keeps square shape clean */
