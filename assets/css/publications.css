@@ -31,7 +31,7 @@
 
 /* Ensure .pub-authors stretches */
 .pub-authors {
-  flex-grow: 1;          /* Allow it to grow and fill remaining space */
+  /*flex-grow: 1;          /* Allow it to grow and fill remaining space */
   margin: 0;            /* Remove any margins */
   padding: 0;           /* Remove any padding */
   font-size: 0.9rem;
@@ -41,7 +41,11 @@
   overflow: visible;    /* Ensure no hidden overflow */
   text-overflow: unset;
   word-wrap: break-word; /* Ensure long names wrap onto the next line */
+  line-height: 1.4;      /* Ensure spacing between author names */
 }
+
+
+
 
 /* TITLE (Google Scholar style) */
 .pub-title {
