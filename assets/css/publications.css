@@ -137,6 +137,7 @@
   min-width: 0;
 }
 
+
 /* TITLE (Google Scholar style) */
 .pub-title {
   margin: 0;
@@ -218,3 +219,43 @@
 .pub-links a:hover {
   text-decoration: underline;
 }
+
+/* Ensure .pub-content takes up all available space */
+.pub-content {
+  flex-grow: 1;   /* Allow this element to grow and fill available space */
+  min-width: 0;   /* Prevent content overflow */
+}
+
+/* Ensure .pub-authors stretches */
+.pub-authors {
+  width: 100%;       /* Ensure it takes up the full width */
+  margin: 0;         /* Remove any margins */
+  padding: 0;        /* Remove any padding */
+  font-size: 0.9rem;
+  color: #444;
+  font-style: normal;
+  white-space: normal; /* Allow authors' names to break into multiple lines */
+  overflow: visible;   /* Ensure no hidden overflow */
+  text-overflow: unset;
+}
+
+/* Ensure the parent flex container allows full width distribution */
+.publication-item {
+  display: flex;
+  flex-direction: row;  /* Row layout for items */
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;           /* Full width */
+}
+
+/* Ensure .publication-card uses flexbox and doesn't restrict its children */
+.publication-card {
+  display: flex;
+  flex-direction: column;  /* Stack content vertically */
+  padding: 10px 20px;      /* Adjust padding if needed */
+  border-bottom: 1px solid #e5e5e5;
+  background: transparent;
+  width: 100%;            /* Ensure card expands to the full width of the parent */
+  height: auto;           /* Allow the card height to grow with content */
+}
+
