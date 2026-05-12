@@ -78,68 +78,73 @@ function renderSection(title, list, container) {
         </div>
       </div>
     `;
-    
+
     section.appendChild(card);
   });
 
   container.appendChild(section);
 }
 
+// Detect which page we're on robustly
+function getPageType() {
+  const path = window.location.pathname;
+  // Matches /publications-all, /publications-all.html, /publications-all/
+  if (/publications[-_]all/.test(path)) return "all";
+  // Matches /publications, /publications.html, /publications/
+  if (/publications/.test(path)) return "main";
+  // Fallback: if the element exists on the home page
+  return "main";
+}
+
 // Main function to load and display publications
 async function loadPublications() {
   try {
-    const response = await fetch("./publications.bib");
+    // Use an absolute path so the .bib file is always found regardless of page
+    const bibPath = window.location.origin + "/publications.bib";
+    const response = await fetch(bibPath);
     if (!response.ok) {
-      throw new Error("Cannot load publications.bib");
+      throw new Error("Cannot load publications.bib (status " + response.status + ")");
     }
 
     const bibtexText = await response.text();
     const entries = bibtexParse.toJSON(bibtexText);
 
     // Sort entries by year (newest first)
-    entries.sort((a, b) => (b.entryTags.year || 0) - (a.entryTags.year || 0));
+    entries.sort((a, b) => (parseInt(b.entryTags.year) || 0) - (parseInt(a.entryTags.year) || 0));
 
     const pubList = document.getElementById("pub-list");
+    if (!pubList) return; // Safety check
     pubList.innerHTML = "";
 
-    // Check the current page (if we're on the main page or the all publications page)
-    if (window.location.pathname === "/publications" || window.location.pathname === "/") {
-      // Show only the first 5 journal articles on the main page
-      const articles = entries.filter(entry => entry.entryType === "article");
-      const latestArticles = articles.slice(0, 5);
+    const pageType = getPageType();
 
-      renderSection("Journal Articles", latestArticles, pubList);
-
-      // Add a "See all publications" link
-      const seeAll = document.createElement("div");
-      seeAll.className = "pub-see-all";
-      seeAll.innerHTML = `<a href="{{ site.baseurl }}/publications-all">→ See all publications</a>`;
-      pubList.appendChild(seeAll);
-    } else if (window.location.pathname === "/publications-all") {
-      // If on the all publications page, show everything grouped by type
-      const articles = [];
-      const conferences = [];
-      const books = [];
-
-      // Group publications by type
-      entries.forEach(entry => {
-        const type = entry.entryType;
-        if (type === "article") {
-          articles.push(entry);
-        } else if (type === "inproceedings") {
-          conferences.push(entry);
-        } else if (type === "book") {
-          books.push(entry);
-        }
-      });
+    if (pageType === "all") {
+      // Show everything grouped by type
+      const articles = entries.filter(e => e.entryType === "article");
+      const conferences = entries.filter(e => e.entryType === "inproceedings");
+      const books = entries.filter(e => e.entryType === "book");
 
       renderSection("Journal Articles", articles, pubList);
       renderSection("Conference Papers", conferences, pubList);
       renderSection("Books", books, pubList);
+
+    } else {
+      // Show only the first 5 journal articles on the main publications page
+      const articles = entries.filter(e => e.entryType === "article");
+      const latestArticles = articles.slice(0, 5);
+
+      renderSection("Journal Articles", latestArticles, pubList);
+
+      // "See all" link — plain HTML, no Liquid tags
+      const seeAll = document.createElement("div");
+      seeAll.className = "pub-see-all";
+      seeAll.innerHTML = `<a href="/publications-all.html">→ See all publications</a>`;
+      pubList.appendChild(seeAll);
     }
   } catch (error) {
     console.error(error);
-    document.getElementById("pub-list").innerHTML = "<p style='color:red;'>Error loading publications.</p>";
+    const pubList = document.getElementById("pub-list");
+    if (pubList) pubList.innerHTML = "<p style='color:red;'>Error loading publications.</p>";
   }
 }
 
