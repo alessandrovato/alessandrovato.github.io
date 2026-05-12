@@ -1,3 +1,4 @@
+
 function shortenAuthors(authorString) {
 
   if (!authorString) return "";
@@ -8,7 +9,7 @@ function shortenAuthors(authorString) {
 
       author = author.trim();
 
-      // Format: "Last, First"
+      // "Last, First"
       if (author.includes(",")) {
 
         const [last, first] = author.split(",");
@@ -22,7 +23,7 @@ function shortenAuthors(authorString) {
         return `${initials} ${last.trim()}`;
       }
 
-      // Format: "First Last"
+      // "First Last"
       const parts = author.split(/\s+/);
 
       const last = parts.pop();
@@ -51,19 +52,25 @@ async function loadPublications() {
 
     const entries = bibtexParse.toJSON(bibtexText);
 
-    // Sort newest first
+    // sort newest first
     entries.sort((a, b) => {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
 
-    // Show ONLY latest 5 publications
-    const latestEntries = entries.slice(0, 5);
+    // ✅ detect page
+    const isFullPage =
+      window.location.pathname.includes("publications");
+
+    // homepage = 5, publications page = all
+    const finalEntries = isFullPage
+      ? entries
+      : entries.slice(0, 5);
 
     const pubList = document.getElementById("pub-list");
 
     pubList.innerHTML = "";
 
-    latestEntries.forEach(entry => {
+    finalEntries.forEach(entry => {
 
       const tags = entry.entryTags;
 
@@ -97,16 +104,7 @@ async function loadPublications() {
                 }
               `
               : `
-                ${doi
-                  ? `
-                    <a href="https://doi.org/${doi}" target="_blank">
-                      <div class="pub-fallback">📄</div>
-                    </a>
-                  `
-                  : `
-                    <div class="pub-fallback">📄</div>
-                  `
-                }
+                <div class="pub-fallback">📄</div>
               `
             }
 
@@ -135,18 +133,19 @@ async function loadPublications() {
       pubList.appendChild(card);
     });
 
-    // "See all publications" link
-    const seeAll = document.createElement("div");
+    // show "See all" ONLY on homepage
+    if (!isFullPage) {
 
-    seeAll.className = "pub-see-all";
+      const seeAll = document.createElement("div");
 
-    seeAll.innerHTML = `
-      <a href="publications-all.html">
-        → See all publications
-      </a>
-    `;
+      seeAll.className = "pub-see-all";
 
-    pubList.appendChild(seeAll);
+      seeAll.innerHTML = `
+        <a href="/publications/">→ See all publications</a>
+      `;
+
+      pubList.appendChild(seeAll);
+    }
 
   } catch (error) {
 
