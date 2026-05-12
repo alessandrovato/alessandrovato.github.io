@@ -146,13 +146,23 @@
       gap: 15px;
     }
 
-    .lab-name {
+    /*.lab-name {
       font-size: 1.3rem;
       font-weight: 700;
       color: white;
       white-space: nowrap;
       letter-spacing: 0.5px;
+    }*/
+
+
+    .lab-name {
+      font-size: 1.3rem;
+      font-weight: normal;  /* Change from bold to normal */
+      color: white;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
     }
+
 
     .header-logo {
       height: 45px;
