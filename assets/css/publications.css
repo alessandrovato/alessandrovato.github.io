@@ -80,7 +80,9 @@
   width: 120px;
   height: 80px;
 
-  object-fit: cover; /* keeps square shape clean */
+  /*object-fit: cover; keeps square shape clean */
+  
+  object-fit: contain /* resize the figure */
 
   border-radius: 8px;
   border: 1px solid #ddd;
