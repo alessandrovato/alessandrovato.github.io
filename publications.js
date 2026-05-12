@@ -1,32 +1,26 @@
-// Function to shorten author names
 function shortenAuthors(authorString) {
   if (!authorString) return "";
 
   return authorString
-    .split(" and ")
+    .split(" and ")  // Split authors by "and"
     .map(author => {
       author = author.trim();
 
+      // If author name has a comma (Last, First)
       if (author.includes(",")) {
         const [last, first] = author.split(",");
-        const initials = first
-          .trim()
-          .split(/\s+/)
-          .map(n => n.charAt(0) + ".")
-          .join(" ");
-
+        const initials = first.trim().split(/\s+/).map(n => n.charAt(0) + ".").join(" ");
         return `${initials} ${last.trim()}`;
       }
 
+      // For authors without a comma, take initials of first and second names
       const parts = author.split(/\s+/);
-      const last = parts.pop();
-      const initials = parts
-        .map(n => n.charAt(0) + ".")
-        .join(" ");
+      const last = parts.pop(); // Pop the last name
+      const initials = parts.map(n => n.charAt(0) + ".").join(" "); // Initials of first and second names
 
       return `${initials} ${last}`;
     })
-    .join(", ");
+    .join(", "); // Join multiple authors with commas
 }
 
 // Function to extract year from a BibTeX entry
