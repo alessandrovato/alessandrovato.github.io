@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Publications
@@ -21,8 +20,12 @@ title: Publications
     </div>
 </section>
 
-<!-- BibTeX parser -->
-<script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js/dist/bibtexParse.min.js"></script>
+<!-- =========================
+     SCRIPTS (IMPORTANT ORDER)
+========================= -->
+
+<!-- BibTeX parser MUST load first -->
+<script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js@0.0.1/bibtexParse.min.js"></script>
 
 <!-- Your script -->
-<script src="/publications.js"></script>
+<script src="{{ '/publications.js' | relative_url }}"></script>
