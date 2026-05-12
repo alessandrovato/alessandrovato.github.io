@@ -1,4 +1,3 @@
-
 function shortenAuthors(authorString) {
 
   if (!authorString) return "";
@@ -9,6 +8,7 @@ function shortenAuthors(authorString) {
 
       author = author.trim();
 
+      // Format: "Last, First"
       if (author.includes(",")) {
 
         const [last, first] = author.split(",");
@@ -17,26 +17,12 @@ function shortenAuthors(authorString) {
           .trim()
           .split(/\s+/)
           .map(n => n.charAt(0) + ".")
-          .join(" ");${image ? `
-  <div class="pub-thumb">
-
-    ${doi
-      ? `
-        <a href="https://doi.org/${doi}" target="_blank">
-          <img src="${image}" alt="">
-        </a>
-      `
-      : `
-        <img src="${image}" alt="">
-      `
-    }
-
-  </div>
-` : ""}
+          .join(" ");
 
         return `${initials} ${last.trim()}`;
       }
 
+      // Format: "First Last"
       const parts = author.split(/\s+/);
 
       const last = parts.pop();
@@ -65,12 +51,12 @@ async function loadPublications() {
 
     const entries = bibtexParse.toJSON(bibtexText);
 
-    // sort newest first
+    // Sort newest first
     entries.sort((a, b) => {
       return (b.entryTags.year || 0) - (a.entryTags.year || 0);
     });
 
-    // ✅ FIXED: always show ONLY 5
+    // Show ONLY latest 5 publications
     const latestEntries = entries.slice(0, 5);
 
     const pubList = document.getElementById("pub-list");
@@ -89,27 +75,42 @@ async function loadPublications() {
       const image = tags.image || "";
 
       const card = document.createElement("div");
+
       card.className = "publication-card";
 
       card.innerHTML = `
         <div class="publication-item">
 
-          ${image ? `
-            <div class="pub-thumb">
+          <div class="pub-thumb">
 
-            ${doi
-            ? `
-              <a href="https://doi.org/${doi}" target="_blank">
-                <img src="${image}" alt="">
-              </a>
-            `
-            : `
-              <img src="${image}" alt="">
-            `
+            ${image
+              ? `
+                ${doi
+                  ? `
+                    <a href="https://doi.org/${doi}" target="_blank">
+                      <img src="${image}" alt="">
+                    </a>
+                  `
+                  : `
+                    <img src="${image}" alt="">
+                  `
+                }
+              `
+              : `
+                ${doi
+                  ? `
+                    <a href="https://doi.org/${doi}" target="_blank">
+                      <div class="pub-fallback">📄</div>
+                    </a>
+                  `
+                  : `
+                    <div class="pub-fallback">📄</div>
+                  `
+                }
+              `
             }
 
           </div>
-        ` : ""}
 
           <div class="pub-content">
 
@@ -134,12 +135,15 @@ async function loadPublications() {
       pubList.appendChild(card);
     });
 
-    // SEE ALL LINK
+    // "See all publications" link
     const seeAll = document.createElement("div");
+
     seeAll.className = "pub-see-all";
 
     seeAll.innerHTML = `
-      <a href="publicationsAll.html">→ See all publications</a>
+      <a href="publicationsAll.html">
+        → See all publications
+      </a>
     `;
 
     pubList.appendChild(seeAll);
