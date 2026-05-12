@@ -29,6 +29,16 @@ function shortenAuthors(authorString) {
     .join(", ");
 }
 
+// Function to extract year from a BibTeX entry
+function extractYear(entry) {
+  // Check if the entry has a date field, and extract the year part
+  if (entry.entryTags.date) {
+    const year = entry.entryTags.date.split('-')[0]; // Get the first part of the date (e.g., 2016-08 -> 2016)
+    return year;
+  }
+  return ""; // Return an empty string if no date is available
+}
+
 // Function to render a section of publications
 function renderSection(title, list, container) {
   if (list.length === 0) return;
@@ -41,7 +51,7 @@ function renderSection(title, list, container) {
     const tags = entry.entryTags;
     const titleText = tags.title || "Untitled";
     const authors = shortenAuthors(tags.author || "");
-    const year = tags.year || "";
+    const year = extractYear(entry); // Extract year from the date field
     const journal = tags.journal || tags.booktitle || "";
     const doi = tags.doi || "";
     const image = tags.image || "";
