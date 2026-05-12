@@ -29,7 +29,7 @@ function shortenAuthors(authorString) {
     .join(", ");
 }
 
-// Function to render each section
+// Function to render a section of publications
 function renderSection(title, list, container) {
   if (list.length === 0) return;
 
@@ -50,7 +50,6 @@ function renderSection(title, list, container) {
 
     card.innerHTML = `
       <div class="publication-item">
-
         <div class="pub-thumb">
           ${image
             ? `
@@ -66,22 +65,17 @@ function renderSection(title, list, container) {
         </div>
 
         <div class="pub-content">
-
           <h3 class="pub-title">
             ${doi
               ? `<a href="https://doi.org/${doi}" target="_blank">${titleText}</a>`
               : titleText
             }
           </h3>
-
           <p class="pub-authors">${authors}</p>
-
           <p class="pub-meta">
             ${journal} ${year ? `(${year})` : ""}
           </p>
-
         </div>
-
       </div>
     `;
     
@@ -105,36 +99,44 @@ async function loadPublications() {
     // Sort entries by year (newest first)
     entries.sort((a, b) => (b.entryTags.year || 0) - (a.entryTags.year || 0));
 
-    // Group publications by type
-    const articles = [];
-    const conferences = [];
-    const books = [];
-
-    entries.forEach(entry => {
-      const type = entry.entryType;
-      if (type === "article") {
-        articles.push(entry);
-      } else if (type === "inproceedings") {
-        conferences.push(entry);
-      } else if (type === "book") {
-        books.push(entry);
-      }
-    });
-
-    // Display publications grouped by type
     const pubList = document.getElementById("pub-list");
     pubList.innerHTML = "";
 
-    renderSection("Journal Articles", articles, pubList);
-    renderSection("Conference Papers", conferences, pubList);
-    renderSection("Books", books, pubList);
+    // Check the current page (if we're on the main page or the all publications page)
+    if (window.location.pathname === "/publications" || window.location.pathname === "/") {
+      // Show only the first 5 journal articles on the main page
+      const articles = entries.filter(entry => entry.entryType === "article");
+      const latestArticles = articles.slice(0, 5);
 
-    // Optionally: Add a "See all" link (if you want a link to a different page)
-    const seeAll = document.createElement("div");
-    seeAll.className = "pub-see-all";
-    seeAll.innerHTML = `<a href="publicationsAll.html">→ See all publications</a>`;
-    pubList.appendChild(seeAll);
+      renderSection("Journal Articles", latestArticles, pubList);
 
+      // Add a "See all publications" link
+      const seeAll = document.createElement("div");
+      seeAll.className = "pub-see-all";
+      seeAll.innerHTML = `<a href="publicationsAll">→ See all publications</a>`;
+      pubList.appendChild(seeAll);
+    } else if (window.location.pathname === "/publicationsAll") {
+      // If on the all publications page, show everything grouped by type
+      const articles = [];
+      const conferences = [];
+      const books = [];
+
+      // Group publications by type
+      entries.forEach(entry => {
+        const type = entry.entryType;
+        if (type === "article") {
+          articles.push(entry);
+        } else if (type === "inproceedings") {
+          conferences.push(entry);
+        } else if (type === "book") {
+          books.push(entry);
+        }
+      });
+
+      renderSection("Journal Articles", articles, pubList);
+      renderSection("Conference Papers", conferences, pubList);
+      renderSection("Books", books, pubList);
+    }
   } catch (error) {
     console.error(error);
     document.getElementById("pub-list").innerHTML = "<p style='color:red;'>Error loading publications.</p>";
