@@ -167,16 +167,28 @@
 }*/
 
 /* AUTHORS */
-.pub-authors {
+/*.pub-authors {
   margin: 2px 0;
   font-size: 0.9rem;
   color: #444;
   font-style: normal;
 
-  /* Remove text overflow handling to allow full author names to be shown */
-  white-space: normal;      /* Allow line breaks */
-  overflow: visible;        /* Allow overflow */
-  text-overflow: unset;     /* Disable text truncation */
+  /* Remove text overflow handling to allow full author names to be shown 
+  white-space: normal;      /* Allow line breaks 
+  overflow: visible;        /* Allow overflow 
+  text-overflow: unset;     /* Disable text truncation 
+}*/
+
+.pub-authors {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  color: #444;
+  font-style: normal;
+
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 
