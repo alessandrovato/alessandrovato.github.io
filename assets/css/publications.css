@@ -38,13 +38,13 @@
   color: #444;
   font-style: normal;
 
-  /*white-space: normal;  /* Allow authors' names to break into multiple lines 
-  overflow: visible;    /* Ensure no hidden overflow 
-  text-overflow: unset; */
+  /*white-space: normal;   /*Allow authors' names to break into multiple lines*/
+  /* overflow: visible;    /*Ensure no hidden overflow */
+  text-overflow: unset; 
   
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Optional: adds "..." if the text overflows */
+  /* text-overflow: ellipsis; /* Optional: adds "..." if the text overflows */
 
 
   
