@@ -113,7 +113,7 @@ async function loadPublications() {
     seeAll.className = "pub-see-all";
 
     seeAll.innerHTML = `
-      <a href="publications.html">→ See all publications</a>
+      <a href="publicationsAll.html">→ See all publications</a>
     `;
 
     pubList.appendChild(seeAll);
