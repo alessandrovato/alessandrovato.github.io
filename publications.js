@@ -113,7 +113,7 @@ async function loadPublications() {
       // Add a "See all publications" link
       const seeAll = document.createElement("div");
       seeAll.className = "pub-see-all";
-      seeAll.innerHTML = `<a href="publicationsAll">→ See all publications</a>`;
+      seeAll.innerHTML = `<a href="publications-all">→ See all publications</a>`;
       pubList.appendChild(seeAll);
     } else if (window.location.pathname === "/publicationsAll") {
       // If on the all publications page, show everything grouped by type
