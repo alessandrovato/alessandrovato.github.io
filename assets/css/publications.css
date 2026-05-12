@@ -27,11 +27,20 @@
    LAYOUT
 ========================= */
 
-.publication-item {
+/*.publication-item {
   display: flex;
   flex-direction: row;
   gap: 12px;
   align-items: flex-start;
+}*/
+
+.publication-item {
+  display: flex;
+  flex-direction: row-reverse; /* image on RIGHT */
+  align-items: flex-start;
+  gap: 14px;
+
+  width: 100%;
 }
 
 /* =========================
