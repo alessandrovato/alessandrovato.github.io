@@ -138,7 +138,7 @@ async function loadPublications() {
       const articles = entries.filter(e => e.entryType === "article");
       const latestArticles = articles.slice(0, 5);
 
-      renderSection("Journal Articles", latestArticles, pubList);
+      renderSection("", latestArticles, pubList);
 
       // "See all" link — plain HTML, no Liquid tags
       const seeAll = document.createElement("div");
