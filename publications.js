@@ -52,8 +52,10 @@ function renderSection(title, list, container) {
     const titleText = tags.title || "Untitled";
     const authors = shortenAuthors(tags.author || "");
     const year = extractYear(entry); // Extract year from the date field
-    const journal = tags.journal || tags.booktitle || "";
+    const journal = tags.journal || tags.booktitle || ""; // For article or booktitle
+    const eventTitle = tags.eventtitle || ""; // For conference papers
     const doi = tags.doi || "";
+    const url = tags.url || "";
     const image = tags.image || "";
 
     const typeIcon = entry.entryType === "inproceedings" ? "🖊️"
@@ -88,8 +90,9 @@ function renderSection(title, list, container) {
           </h3>
           <p class="pub-authors">${authors}</p>
           <p class="pub-meta">
-            ${journal} ${year ? `(${year})` : ""}
+            ${journal ? `${journal} ` : ""}${eventTitle ? `(${eventTitle}) ` : ""}${year ? `(${year})` : ""}
           </p>
+          ${url ? `<p><a href="${url}" target="_blank">View Article</a></p>` : ""}
         </div>
       </div>
     `;
