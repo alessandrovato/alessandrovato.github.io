@@ -663,3 +663,23 @@
     width: 100%;
 }
 
+/* =========================================================
+       LINK'S COLOR
+    ========================================================= */
+
+a:link {
+    color: #074173; /* Unvisited links */
+}
+
+a:visited {
+    color: #074173; /* Visited links */
+}
+
+a:hover {
+    color: #074173; /* Hovered links */
+}
+
+a:active {
+    color: #074173; /* Active links */
+}
+
