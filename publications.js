@@ -17,7 +17,22 @@ function shortenAuthors(authorString) {
           .trim()
           .split(/\s+/)
           .map(n => n.charAt(0) + ".")
-          .join(" ");
+          .join(" ");${image ? `
+  <div class="pub-thumb">
+
+    ${doi
+      ? `
+        <a href="https://doi.org/${doi}" target="_blank">
+          <img src="${image}" alt="">
+        </a>
+      `
+      : `
+        <img src="${image}" alt="">
+      `
+    }
+
+  </div>
+` : ""}
 
         return `${initials} ${last.trim()}`;
       }
@@ -81,9 +96,20 @@ async function loadPublications() {
 
           ${image ? `
             <div class="pub-thumb">
+
+            ${doi
+            ? `
+              <a href="https://doi.org/${doi}" target="_blank">
+                <img src="${image}" alt="">
+              </a>
+            `
+            : `
               <img src="${image}" alt="">
-            </div>
-          ` : ""}
+            `
+            }
+
+          </div>
+        ` : ""}
 
           <div class="pub-content">
 
