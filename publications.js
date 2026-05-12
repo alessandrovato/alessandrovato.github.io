@@ -34,9 +34,9 @@ function extractYear(entry) {
   // Check if the entry has a date field, and extract the year part
   if (entry.entryTags.date) {
     const year = entry.entryTags.date.split('-')[0]; // Get the first part of the date (e.g., 2016-08 -> 2016)
-    return year;
+    return parseInt(year) || 0;  // Ensure it's an integer
   }
-  return ""; // Return an empty string if no date is available
+  return 0; // Return 0 if no date is available
 }
 
 // Function to render a section of publications
@@ -135,7 +135,7 @@ async function loadPublications() {
     const entries = bibtexParse.toJSON(bibtexText);
 
     // Sort entries by year (newest first)
-    entries.sort((a, b) => (parseInt(b.entryTags.year) || 0) - (parseInt(a.entryTags.year) || 0));
+    entries.sort((a, b) => extractYear(b) - extractYear(a));
 
     const pubList = document.getElementById("pub-list");
     if (!pubList) return; // Safety check
