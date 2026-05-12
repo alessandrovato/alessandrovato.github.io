@@ -141,7 +141,7 @@ async function loadPublications() {
     seeAll.className = "pub-see-all";
 
     seeAll.innerHTML = `
-      <a href="publicationsAll.html">
+      <a href="publications-all.html">
         → See all publications
       </a>
     `;
