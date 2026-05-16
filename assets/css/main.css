@@ -124,7 +124,7 @@
 
       /*background: var(--color-accent);*/
 
-      background: rgba(161, 28, 22, 0.9);
+      background: rgba(161, 28, 22, 0.8);  /*makes the header transparent */
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       color: white;
