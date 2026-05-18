@@ -53,6 +53,8 @@ function renderSection(title, list, container) {
       tags.booktitle ||
       "";
 
+    const publisher = tags.publisher || "";
+
     const eventTitle = tags.eventtitle || "";
     const doi = tags.doi || "";
     const image = tags.image || "";
@@ -96,7 +98,15 @@ function renderSection(title, list, container) {
             ${
               entry.entryType === "inproceedings"
                 ? `${eventTitle || journal} ${year ? `(${year})` : ""}`
-                : `${journal} ${year ? `(${year})` : ""}`
+
+                : (entry.entryType === "book" || entry.entryType === "incollection")
+                  ? `
+                    ${journal ? `${journal}` : ""}
+                    ${publisher ? `${journal ? " · " : ""}${publisher}` : ""}
+                    ${year ? ` (${year})` : ""}
+                  `
+
+                  : `${journal} ${year ? `(${year})` : ""}`
             }
           </p>
         </div>
