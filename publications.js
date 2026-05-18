@@ -45,19 +45,23 @@ function renderSection(title, list, container) {
     const tags = entry.entryTags;
     const titleText = tags.title || "Untitled";
     const authors = shortenAuthors(tags.author || "");
-    const year = extractYear(entry); // Extract year from the date field
+    const year = extractYear(entry);
+
     const journal =
       tags.journaltitle ||
       tags.journal ||
       tags.booktitle ||
-      ""; // Journal title or book title for articles and books
-    const eventTitle = tags.eventtitle || ""; // Event title for conference papers
+      "";
+
+    const eventTitle = tags.eventtitle || "";
     const doi = tags.doi || "";
     const image = tags.image || "";
 
-    const typeIcon = entry.entryType === "inproceedings" ? "🖊️"
-                   : entry.entryType === "book" ? "📖"
-                   : "📄";
+    // Treat incollection like books
+    const typeIcon =
+      entry.entryType === "inproceedings" ? "🖊️"
+      : (entry.entryType === "book" || entry.entryType === "incollection") ? "📖"
+      : "📄";
 
     const card = document.createElement("div");
     card.className = "publication-card";
@@ -85,6 +89,7 @@ function renderSection(title, list, container) {
               : titleText
             }
           </h3>
+
           <p class="pub-authors">${authors}</p>
 
           <p class="pub-meta">
@@ -107,10 +112,13 @@ function renderSection(title, list, container) {
 // Detect which page we're on robustly
 function getPageType() {
   const path = window.location.pathname;
+
   // Matches /publications-all, /publications-all.html, /publications-all/
   if (/publications[-_]all/.test(path)) return "all";
+
   // Matches /publications, /publications.html, /publications/
   if (/publications/.test(path)) return "main";
+
   // Fallback: if the element exists on the home page
   return "main";
 }
@@ -120,7 +128,9 @@ async function loadPublications() {
   try {
     // Use an absolute path so the .bib file is always found regardless of page
     const bibPath = window.location.origin + "/publications.bib";
+
     const response = await fetch(bibPath);
+
     if (!response.ok) {
       throw new Error("Cannot load publications.bib (status " + response.status + ")");
     }
@@ -132,38 +142,65 @@ async function loadPublications() {
     entries.sort((a, b) => extractYear(b) - extractYear(a));
 
     const pubList = document.getElementById("pub-list");
-    if (!pubList) return; // Safety check
+
+    if (!pubList) return;
+
     pubList.innerHTML = "";
 
     const pageType = getPageType();
 
     if (pageType === "all") {
+
       // Show everything grouped by type
-      const articles = entries.filter(e => e.entryType === "article");
-      const conferences = entries.filter(e => e.entryType === "inproceedings");
-      const books = entries.filter(e => e.entryType === "book");
+      const articles = entries.filter(
+        e => e.entryType === "article"
+      );
+
+      const conferences = entries.filter(
+        e => e.entryType === "inproceedings"
+      );
+
+      // Treat incollection like books
+      const books = entries.filter(
+        e => e.entryType === "book" || e.entryType === "incollection"
+      );
 
       renderSection("Journal Articles", articles, pubList);
       renderSection("Conference Papers", conferences, pubList);
       renderSection("Books", books, pubList);
 
     } else {
+
       // Show only the first 5 journal articles on the main publications page
-      const articles = entries.filter(e => e.entryType === "article");
+      const articles = entries.filter(
+        e => e.entryType === "article"
+      );
+
       const latestArticles = articles.slice(0, 5);
 
       renderSection("", latestArticles, pubList);
 
-      // "See all" link — plain HTML, no Liquid tags
+      // "See all" link
       const seeAll = document.createElement("div");
       seeAll.className = "pub-see-all";
-      seeAll.innerHTML = `<a href="/publications-all.html">→ See all publications</a>`;
+
+      seeAll.innerHTML = `
+        <a href="/publications-all.html">
+          → See all publications
+        </a>
+      `;
+
       pubList.appendChild(seeAll);
     }
+
   } catch (error) {
     console.error(error);
+
     const pubList = document.getElementById("pub-list");
-    if (pubList) pubList.innerHTML = "<p style='color:red;'>Error loading publications.</p>";
+
+    if (pubList) {
+      pubList.innerHTML = "<p style='color:red;'>Error loading publications.</p>";
+    }
   }
 }
 
