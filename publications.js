@@ -23,19 +23,6 @@ function shortenAuthors(authorString) {
     .join(", "); // Join multiple authors with commas
 }
 
-
-function cleanBibtexText(text) {
-  if (!text) return "";
-
-  return text
-    .replace(/\\&/g, "&")
-    .replace(/\\_/g, "_")
-    .replace(/\\%/g, "%")
-    .replace(/[{}]/g, ""); // optional: remove BibTeX braces
-}
-
-
-
 // Function to extract year from a BibTeX entry
 function extractYear(entry) {
   // Check if the entry has a date field, and extract the year part
@@ -60,16 +47,13 @@ function renderSection(title, list, container) {
     const authors = shortenAuthors(tags.author || "");
     const year = extractYear(entry);
 
-    const journal = cleanBibtexText(
+    const journal =
       tags.journaltitle ||
       tags.journal ||
       tags.booktitle ||
-      ""
-    );
+      "";
 
-    const publisher = cleanBibtexText(tags.publisher || "");
-
-    const titleText = cleanBibtexText(tags.title || "Untitled");
+    const publisher = tags.publisher || "";
 
     const eventTitle = tags.eventtitle || "";
     const doi = tags.doi || "";
