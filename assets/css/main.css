@@ -220,8 +220,6 @@ nav{
     box-shadow:none;
     backdrop-filter:none;
 
-     mix-blend-mode:difference;
-
 }
 
 .nav-profile {
@@ -273,60 +271,8 @@ nav a.active{
 
 
 
-nav a::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:-12px;
-
-    top:50%;
-
-    width:4px;
-
-    height:0;
-
-    transform:translateY(-50%);
-
-    background:#a11c16;
-
-    border-radius:5px;
-
-    transition:.40s;
-
-}
-
-nav a.active::before{
-
-    height:24px;
-
-}
-
-nav a{
-
-    opacity:.55;
-
-}
-
-nav a.active{
-
-    opacity:1;
-
-}
 
 
-nav a.dark-text{
-
-    color:#074173;
-
-}
-
-nav a.light-text{
-
-    color:white;
-
-}
 
 
     /* =========================================================
