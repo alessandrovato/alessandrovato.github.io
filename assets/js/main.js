@@ -1,30 +1,27 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
+    const nav = document.querySelector("nav");
     const sections = document.querySelectorAll("section");
-    const links = document.querySelectorAll("nav a");
 
-    const observer = new IntersectionObserver((entries)=>{
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
 
-        entries.forEach(entry=>{
+            if (!entry.isIntersecting) return;
 
-            if(!entry.isIntersecting) return;
-
-            links.forEach(link=>link.classList.remove("active"));
-
-            const active =
-                document.querySelector(
-                    `nav a[href="/#${entry.target.id}"]`
-                );
-
-            if(active)
-                active.classList.add("active");
+            if (entry.target.classList.contains("section-dark")) {
+                nav.style.setProperty("--nav-bg", "#0d355a");
+                nav.querySelectorAll("a").forEach(a => a.style.color = "white");
+            } else {
+                nav.style.setProperty("--nav-bg", "white");
+                nav.querySelectorAll("a").forEach(a => a.style.color = "#074173");
+            }
 
         });
-
-    },{
-        threshold:0.45
+    }, {
+        threshold: 0.5
     });
 
-    sections.forEach(section=>observer.observe(section));
+    sections.forEach(section => observer.observe(section));
 
 });

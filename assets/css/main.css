@@ -191,83 +191,72 @@
       transform: scale(1.02);
     }
 
-  /* =========================================================
-   SIDEBAR
-========================================================= */
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+    nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
 
-nav{
-    position:fixed;
-    top:60px;
-    left:0;
+    width: var(--nav-width);
+    height: 100vh;
 
-    width:220px;
-    height:calc(100vh - 60px);
+    padding: 20px 0;
 
-    background:#074173;
+    display: flex;
+    flex-direction: column;
 
-    display:flex;
-    flex-direction:column;
+    z-index: 100;
 
-    padding:30px 0;
-
-    box-shadow:4px 0 18px rgba(0,0,0,.08);
-
-    z-index:999;
-
-    transition:.35s;
+    background: var(--nav-bg, white);
+    transition: background 0.4s ease;
 }
 
-.nav-logo{
-    text-align:center;
-    margin-bottom:35px;
-}
+    .nav-profile {
+      margin-bottom: 10px;
+      padding-bottom: 20px;
 
-.nav-logo img{
-    width:95px;
-    border-radius:50%;
-}
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-nav a{
+    nav a {
+      padding: 15px 30px;
 
-    color:white;
+      color: var(--color-sidebar);
+      font-weight: 500;
 
-    text-decoration:none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
-    padding:16px 28px;
+      transition: var(--transition);
+    }
 
-    margin:4px 12px;
+    nav a:hover {
+      color: var(--color-accent);
+      background: rgba(255, 255, 255, 0.1);
+      padding-left: 40px;
+    }
 
-    border-radius:10px;
+    nav.light{
+        background:white;
+    }
 
-    font-size:.96rem;
+    nav.light a{
+        color:#074173;
+    }
 
-    font-weight:500;
+    nav.dark{
+        background:#0d355a;
+    }
 
-    transition:
-        background .25s,
-        transform .25s,
-        color .25s;
-}
+    nav.dark a{
+        color:white;
+    }
 
-nav a:hover{
-
-    background:rgba(255,255,255,.10);
-
-    transform:translateX(6px);
-
-}
-
-nav a.active{
-
-    background:white;
-
-    color:#074173;
-
-    font-weight:700;
-
-    box-shadow:0 6px 18px rgba(0,0,0,.15);
-
-}
+    nav.dark a:hover{
+        color:#ffd9d7;
+    }
 
     /* =========================================================
        MAIN LAYOUT
