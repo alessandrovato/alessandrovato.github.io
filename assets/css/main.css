@@ -194,33 +194,25 @@ nav{
 
     position:fixed;
 
-    top:85px;
+    top:72px;
+    left:24px;
 
-    left:30px;
-
-    width:190px;
-
-    padding:20px;
+    width:155px;
 
     display:flex;
-
     flex-direction:column;
-
     gap:8px;
 
-    border-radius:18px;
-
-    background:rgba(255,255,255,.15);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    box-shadow:
-
-        0 12px 30px rgba(0,0,0,.15);
+    padding:10px;
 
     z-index:1000;
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+
+    border-radius:18px;
 
 }
 
@@ -234,17 +226,19 @@ nav{
 
 nav a{
 
-    display:block;
-
-    padding:12px 18px;
-
-    border-radius:10px;
-
     color:#074173;
+
+    font-size:1rem;
 
     font-weight:600;
 
-    transition:.30s;
+    letter-spacing:.4px;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    transition:.35s;
 
 }
 
@@ -252,7 +246,7 @@ nav a:hover{
 
     background:rgba(255,255,255,.45);
 
-    transform:translateX(8px);
+    transform:translateX(10px);
 
 }
     /* =========================================================
