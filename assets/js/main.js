@@ -2,36 +2,36 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     const sections=document.querySelectorAll("section");
 
-    const observer=new IntersectionObserver(entries=>{
+    const observer = new IntersectionObserver(entries => {
 
-        entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-            if(!entry.isIntersecting) return;
+        if (!entry.isIntersecting) return;
 
-            const id=entry.target.id;
+        document.querySelectorAll("nav a")
+            .forEach(link => link.classList.remove("active","dark-text","light-text"));
 
-            const theme=entry.target.dataset.theme;
+        const link = document.querySelector(
+            `nav a[href="/#${entry.target.id}"]`
+        );
 
-            const link=document.querySelector(`nav a[href="/#${id}"]`);
+        if (!link) return;
 
-            if(!link) return;
+        link.classList.add("active");
 
-            if(theme==="dark"){
+        if (entry.target.dataset.theme === "dark")
+            link.classList.add("light-text");
+        else
+            link.classList.add("dark-text");
 
-                link.style.color="white";
-
-            }else{
-
-                link.style.color="#074173";
-
-            }
-
-        });
-
-    },{
-        threshold:.5
     });
+
+},{
+    threshold:0.45
+});
 
     sections.forEach(section=>observer.observe(section));
 
 });
+
+

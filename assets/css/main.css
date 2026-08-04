@@ -222,19 +222,27 @@ nav{
 
 nav a{
 
+    position:relative;
+
+    display:block;
+
+    padding:12px 18px;
+
     color:#074173;
 
     font-size:1rem;
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:.3px;
 
-    padding:10px 14px;
+    border-radius:12px;
 
-    border-radius:10px;
-
-    transition:.35s;
+    transition:
+        color .45s ease,
+        background-color .45s ease,
+        transform .35s ease,
+        opacity .35s ease;
 
 }
 
@@ -249,9 +257,69 @@ nav a:hover{
 
 nav a.active{
 
-    background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,.18);
 
-    border-radius:12px;
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
+
+}
+
+nav a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-12px;
+
+    top:50%;
+
+    width:4px;
+
+    height:0;
+
+    transform:translateY(-50%);
+
+    background:#a11c16;
+
+    border-radius:5px;
+
+    transition:.40s;
+
+}
+
+nav a.active::before{
+
+    height:24px;
+
+}
+
+nav a{
+
+    opacity:.55;
+
+}
+
+nav a.active{
+
+    opacity:1;
+
+}
+
+
+nav a.dark-text{
+
+    color:#074173;
+
+}
+
+nav a.light-text{
+
+    color:white;
 
 }
 
