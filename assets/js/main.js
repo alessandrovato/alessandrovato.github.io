@@ -1,27 +1,23 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+const sections = document.querySelectorAll("section");
+const nav = document.querySelector("nav");
 
-    const nav = document.querySelector("nav");
-    const sections = document.querySelectorAll("section");
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-
-            if (!entry.isIntersecting) return;
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
 
             if (entry.target.classList.contains("section-dark")) {
-                nav.style.setProperty("--nav-bg", "#0d355a");
-                nav.querySelectorAll("a").forEach(a => a.style.color = "white");
+                nav.classList.remove("light");
+                nav.classList.add("dark");
             } else {
-                nav.style.setProperty("--nav-bg", "white");
-                nav.querySelectorAll("a").forEach(a => a.style.color = "#074173");
+                nav.classList.remove("dark");
+                nav.classList.add("light");
             }
 
-        });
-    }, {
-        threshold: 0.5
+        }
     });
-
-    sections.forEach(section => observer.observe(section));
-
+}, {
+    threshold: 0.5
 });
+
+sections.forEach(section => observer.observe(section));
