@@ -207,13 +207,9 @@ nav{
 
     z-index:1000;
 
-    background:rgba(255,255,255,.04);
-
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
-
-    border-radius:18px;
-
+    background:transparent;
+    box-shadow:none;
+    backdrop-filter:none;
 }
 
 .nav-profile {
@@ -249,6 +245,17 @@ nav a:hover{
     transform:translateX(10px);
 
 }
+
+
+nav a.active{
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:12px;
+
+}
+
+
     /* =========================================================
        MAIN LAYOUT
     ========================================================= */
@@ -274,13 +281,22 @@ nav a:hover{
 }
 
 
-    section{
+      section{
 
-    min-height:auto;
+      min-height:auto;
 
-    padding:40px 8% 120px 180px;
+      padding:40px 8% 120px 180px;
 
-}
+  }
+
+  section[data-theme="light"]{
+      background:#f7f8fa;
+  }
+
+  section[data-theme="dark"]{
+      background:#0b3558;
+      color:white;
+  }
 
     /* =========================================================
        CARDS

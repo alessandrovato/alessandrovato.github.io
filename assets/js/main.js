@@ -1,27 +1,37 @@
+document.addEventListener("DOMContentLoaded",()=>{
 
-document.addEventListener("DOMContentLoaded", () => {
+    const sections=document.querySelectorAll("section");
 
-    const nav = document.querySelector("nav");
-    const sections = document.querySelectorAll("section");
+    const observer=new IntersectionObserver(entries=>{
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach(entry=>{
 
-            if (!entry.isIntersecting) return;
+            if(!entry.isIntersecting) return;
 
-            if (entry.target.classList.contains("section-dark")) {
-                nav.style.setProperty("--nav-bg", "#0d355a");
-                nav.querySelectorAll("a").forEach(a => a.style.color = "white");
-            } else {
-                nav.style.setProperty("--nav-bg", "white");
-                nav.querySelectorAll("a").forEach(a => a.style.color = "#074173");
+            const id=entry.target.id;
+
+            const theme=entry.target.dataset.theme;
+
+            const link=document.querySelector(`nav a[href="/#${id}"]`);
+
+            if(!link) return;
+
+            if(theme==="dark"){
+
+                link.style.color="white";
+
+            }else{
+
+                link.style.color="#074173";
+
             }
 
         });
-    }, {
-        threshold: 0.5
+
+    },{
+        threshold:.5
     });
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach(section=>observer.observe(section));
 
 });
