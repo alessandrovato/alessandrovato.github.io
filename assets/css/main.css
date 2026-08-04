@@ -246,20 +246,12 @@ nav a{
 
     border-radius:12px;
 
-    color: var(--menu-color, #074173);
+    color:#074173;
 
     transition:
         color .45s ease,
         background-color .45s ease,
         transform .35s ease;
-}
-
-nav a:hover{
-
-    background:rgba(255,255,255,.45);
-
-    transform:translateX(10px);
-
 }
 
 
@@ -268,8 +260,6 @@ nav a.active{
     background:red;
     color:white;
 }
-
-
 
 
 
