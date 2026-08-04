@@ -274,10 +274,9 @@ nav a:hover{
 }
 
 
-
     section{
 
-    min-height:100vh;
+    min-height:auto;
 
     padding:40px 8% 120px 180px;
 
