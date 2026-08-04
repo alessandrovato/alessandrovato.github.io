@@ -1,9 +1,12 @@
-console.log("main.js loaded");
-
 document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("DOM loaded");
 
     const sections = document.querySelectorAll("section");
     const links = document.querySelectorAll("nav a");
+
+    console.log("Sections found:", sections.length);
+    console.log("Links found:", links.length);
 
     const observer = new IntersectionObserver((entries) => {
 
@@ -11,19 +14,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!entry.isIntersecting) return;
 
-            // Reset every menu item
+            console.log("Visible section:", entry.target.id);
+
             links.forEach(link => {
                 link.classList.remove("active");
             });
 
-            // Find the corresponding menu link
-            const activeLink = document.querySelector(
-                `nav a[href$="#${entry.target.id}"]`
+            const activeLink = [...links].find(
+                link => link.hash === "#" + entry.target.id
             );
 
-            if (!activeLink) return;
+            console.log("Active link:", activeLink);
 
-            activeLink.classList.add("active");
+            if (activeLink) {
+                activeLink.classList.add("active");
+            }
 
         });
 
