@@ -210,6 +210,9 @@ nav{
     background:transparent;
     box-shadow:none;
     backdrop-filter:none;
+
+     mix-blend-mode:difference;
+     
 }
 
 .nav-profile {
@@ -236,16 +239,6 @@ nav a{
 
     border-radius:12px;
 
-    color: var(--menu-color, #074173);
-
-    transition:
-        color .45s ease,
-        background-color .45s ease,
-        transform .35s ease;
-}
-
-
-nav a{
     color: var(--menu-color, #074173);
 
     transition:
