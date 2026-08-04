@@ -235,6 +235,26 @@
       padding-left: 40px;
     }
 
+    nav.light{
+        background:white;
+    }
+
+    nav.light a{
+        color:#074173;
+    }
+
+    nav.dark{
+        background:#0d355a;
+    }
+
+    nav.dark a{
+        color:white;
+    }
+
+    nav.dark a:hover{
+        color:#ffd9d7;
+    }
+
     /* =========================================================
        MAIN LAYOUT
     ========================================================= */
