@@ -1,3 +1,5 @@
+console.log("main.js loaded");
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const sections = document.querySelectorAll("section");
