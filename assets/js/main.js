@@ -1,36 +1,40 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-    const sections=document.querySelectorAll("section");
+    const sections = document.querySelectorAll("section");
+    const links = document.querySelectorAll("nav a");
 
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry => {
+        entries.forEach(entry => {
 
-        if (!entry.isIntersecting) return;
+            if (!entry.isIntersecting) return;
 
-        document.querySelectorAll("nav a")
-            .forEach(link => link.classList.remove("active","dark-text","light-text"));
+            links.forEach(link => {
 
-        const link = document.querySelector(
-            `nav a[href="/#${entry.target.id}"]`
-        );
+                link.classList.remove("active");
+                link.style.removeProperty("--menu-color");
 
-        if (!link) return;
+            });
 
-        link.classList.add("active");
+            const active =
+                document.querySelector(`nav a[href="/#${entry.target.id}"]`);
 
-        if (entry.target.dataset.theme === "dark")
-            link.style.setProperty("--menu-color", "white");
-        else
-            link.style.setProperty("--menu-color", "#074173");
+            if (!active) return;
+
+            active.classList.add("active");
+
+            if (entry.target.dataset.theme === "dark") {
+                active.style.setProperty("--menu-color", "#ffffff");
+            } else {
+                active.style.setProperty("--menu-color", "#074173");
+            }
+
+        });
+
+    }, {
+        threshold: 0.45
     });
 
-},{
-    threshold:0.45
-});
-
-    sections.forEach(section=>observer.observe(section));
+    sections.forEach(section => observer.observe(section));
 
 });
-
-
