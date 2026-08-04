@@ -9,30 +9,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!entry.isIntersecting) return;
 
+            // Reset all menu items
             links.forEach(link => {
-
                 link.classList.remove("active");
-                link.style.removeProperty("--menu-color");
-
+                link.style.color = "#074173";
             });
 
-            const active =
-                document.querySelector(`nav a[href="/#${entry.target.id}"]`);
+            // Find the corresponding menu item
+            const active = document.querySelector(
+                `nav a[href="/#${entry.target.id}"]`
+            );
 
             if (!active) return;
 
             active.classList.add("active");
 
-            if (entry.target.dataset.theme === "dark") {
-                active.style.setProperty("--menu-color", "#ffffff");
+            // If the section has class "dark", make text white
+            if (entry.target.classList.contains("dark")) {
+                active.style.color = "white";
             } else {
-                active.style.setProperty("--menu-color", "#074173");
+                active.style.color = "#074173";
             }
 
         });
 
     }, {
-        threshold: 0.45
+        threshold: 0.5
     });
 
     sections.forEach(section => observer.observe(section));
