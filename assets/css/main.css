@@ -228,8 +228,6 @@ nav a{
 
     padding:12px 18px;
 
-    color:#074173;
-
     font-size:1rem;
 
     font-weight:600;
@@ -238,12 +236,22 @@ nav a{
 
     border-radius:12px;
 
+    color: var(--menu-color, #074173);
+
     transition:
         color .45s ease,
         background-color .45s ease,
-        transform .35s ease,
-        opacity .35s ease;
+        transform .35s ease;
+}
 
+
+nav a{
+    color: var(--menu-color, #074173);
+
+    transition:
+        color .45s ease,
+        background-color .45s ease,
+        transform .35s ease;
 }
 
 nav a:hover{

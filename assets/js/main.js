@@ -20,10 +20,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         link.classList.add("active");
 
         if (entry.target.dataset.theme === "dark")
-            link.classList.add("light-text");
+            link.style.setProperty("--menu-color", "white");
         else
-            link.classList.add("dark-text");
-
+            link.style.setProperty("--menu-color", "#074173");
     });
 
 },{
