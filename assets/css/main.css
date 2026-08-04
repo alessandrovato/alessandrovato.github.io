@@ -188,43 +188,9 @@
     /* =========================================================
        NAVIGATION
     ========================================================= */
-    nav {
-<<<<<<< HEAD
-      position: fixed;
-      top: 60px;
-      left: 0;
+ 
 
-      width: var(--nav-width);
-      height: 100vh;
-
-      padding: 20px 0;
-
-      display: flex;
-      flex-direction: column;
-
-      z-index: 100;
-    }
-
-    .nav-profile {
-      margin-bottom: 10px;
-      padding-bottom: 20px;
-
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    nav a {
-      padding: 15px 30px;
-
-      color: var(--color-sidebar);
-      font-weight: 500;
-
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-
-      transition: var(--transition);
-    }
-
-=======
+nav {
     position: fixed;
     top: 60px;
     left: 0;
@@ -238,60 +204,32 @@
     flex-direction: column;
 
     z-index: 100;
-
-    background: var(--nav-bg, white);
-    transition: background 0.4s ease;
 }
 
-    .nav-profile {
-      margin-bottom: 10px;
-      padding-bottom: 20px;
+.nav-profile {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
 
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-    nav a {
-      padding: 15px 30px;
+nav a {
+    padding: 15px 30px;
 
-      color: var(--color-sidebar);
-      font-weight: 500;
+    color: var(--color-sidebar);
+    font-weight: 500;
 
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 
-      transition: var(--transition);
-    }
+    transition: var(--transition);
+}
 
->>>>>>> parent of a6878ad (navigation sidebar. as Leonum)
-    nav a:hover {
-      color: var(--color-accent);
-      background: rgba(255, 255, 255, 0.1);
-      padding-left: 40px;
-    }
-<<<<<<< HEAD
-=======
-
-    nav.light{
-        background:white;
-    }
-
-    nav.light a{
-        color:#074173;
-    }
-
-    nav.dark{
-        background:#0d355a;
-    }
-
-    nav.dark a{
-        color:white;
-    }
-
-    nav.dark a:hover{
-        color:#ffd9d7;
-    }
->>>>>>> parent of a6878ad (navigation sidebar. as Leonum)
-
+nav a:hover {
+    color: var(--color-accent);
+    background: rgba(255,255,255,0.1);
+    padding-left: 40px;
+}
     /* =========================================================
        MAIN LAYOUT
     ========================================================= */
