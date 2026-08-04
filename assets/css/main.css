@@ -24,6 +24,15 @@
       --transition: 0.3s ease;
     }
 
+
+    .light{
+        background:#f8f9fb;
+    }
+
+    .dark{
+        background:#0b3558;
+        color:white;
+    }
     /* =========================================================
        RESET
     ========================================================= */
@@ -212,7 +221,7 @@ nav{
     backdrop-filter:none;
 
      mix-blend-mode:difference;
-     
+
 }
 
 .nav-profile {
@@ -256,18 +265,13 @@ nav a:hover{
 }
 
 
+
 nav a.active{
-
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(12px);
-
-    -webkit-backdrop-filter:blur(12px);
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.08);
-
+    background:red;
+    color:white;
 }
+
+
 
 nav a::before{
 

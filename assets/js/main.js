@@ -9,27 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!entry.isIntersecting) return;
 
-            // Reset all menu items
+            // Reset every menu item
             links.forEach(link => {
                 link.classList.remove("active");
-                link.style.color = "#074173";
             });
 
-            // Find the corresponding menu item
-            const active = document.querySelector(
-                `nav a[href="/#${entry.target.id}"]`
+            // Find the corresponding menu link
+            const activeLink = document.querySelector(
+                `nav a[href$="#${entry.target.id}"]`
             );
 
-            if (!active) return;
+            if (!activeLink) return;
 
-            active.classList.add("active");
-
-            // If the section has class "dark", make text white
-            if (entry.target.classList.contains("dark")) {
-                active.style.color = "white";
-            } else {
-                active.style.color = "#074173";
-            }
+            activeLink.classList.add("active");
 
         });
 
