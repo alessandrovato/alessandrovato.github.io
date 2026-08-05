@@ -200,49 +200,37 @@
 
 nav {
 
-    position: fixed;
+    position:fixed;
 
-    top: 72px;
-    left: 24px;
+    top:72px;
+    left:24px;
 
-    width: 170px;
+    width:170px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 
-    padding: 10px;
+    padding:10px;
 
-    z-index: 1000;
-
-    background: transparent;
-
-    mix-blend-mode: difference;
+    z-index:1000;
 
 }
 
 
-/* ---------------------------------------------------------
-   MENU LINKS
---------------------------------------------------------- */
-
 nav a {
 
-    display: block;
+    display:block;
 
-    padding: 12px 18px;
+    padding:12px 18px;
 
-    font-size: 1rem;
+    font-size:1rem;
 
-    font-weight: 600;
+    font-weight:600;
 
-    letter-spacing: .3px;
+    color:white;
 
-    text-decoration: none;
-
-    border-radius: 12px;
-
-    color: white;
+    mix-blend-mode:difference;
 
     transition:
         transform .3s ease,
