@@ -24,15 +24,6 @@
       --transition: 0.3s ease;
     }
 
-
-    .light{
-        background:#f8f9fb;
-    }
-
-    .dark{
-        background:#0b3558;
-        color:white;
-    }
     /* =========================================================
        RESET
     ========================================================= */
@@ -199,68 +190,74 @@
     ========================================================= */
  
 
-nav{
+/* =========================================================
+   FLOATING NAVIGATION - NORMAL MODE
+========================================================= */
 
-    position:fixed;
+nav {
 
-    top:72px;
-    left:24px;
+    position: fixed;
 
-    width:155px;
+    top: 72px;
+    left: 24px;
 
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+    width: 170px;
 
-    padding:10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
-    z-index:1000;
+    padding: 10px;
 
-    background:transparent;
-    box-shadow:none;
-    backdrop-filter:none;
+    z-index: 1000;
+
+    background: transparent;
+
+    box-shadow: none;
 
 }
 
-.nav-profile {
-    margin-bottom: 10px;
-    padding-bottom: 20px;
 
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+nav a {
 
-nav a{
+    display: block;
 
-    position:relative;
+    padding: 12px 18px;
 
-    display:block;
+    font-size: 1rem;
 
-    padding:12px 18px;
+    font-weight: 600;
 
-    font-size:1rem;
+    letter-spacing: .3px;
 
-    font-weight:600;
+    text-decoration: none;
 
-    letter-spacing:.3px;
+    border-radius: 12px;
 
-    border-radius:12px;
-
-    color:#074173;
+    color: #074173;
 
     transition:
-        color .35s ease,
-        background-color .35s ease,
-        transform .35s ease;
-}
-
-nav a.active{
-
-    background:rgba(255,255,255,.18);
+        color .3s ease,
+        background-color .3s ease,
+        transform .3s ease;
 
 }
 
 
+nav a:hover {
+
+    background: rgba(7,65,115,.08);
+
+    transform: translateX(8px);
+
+}
+
+
+nav a.active {
+
+    font-weight: 700;
+
+}
 
     /* =========================================================
        MAIN LAYOUT
