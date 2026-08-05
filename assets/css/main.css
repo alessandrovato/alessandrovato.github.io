@@ -246,11 +246,18 @@ nav a {
 
 nav a:hover {
 
-    color:#a11c16;   /* CUA burgundy */
+    /* color:#a11c16;   /* CUA burgundy */
 
-    transform:translateX(8px);
+   /* transform:translateX(8px);*/
+
+    color:#a11c16;
+    background:rgba(161,28,22,0.08);
+    border-radius:10px;
 
 }
+
+
+
 
     /* =========================================================
        MAIN LAYOUT
@@ -278,8 +285,7 @@ nav a:hover {
 
 
       section {
-          min-height:100vh;
-          padding:120px 8% 60px 180px;
+          padding:40px 0;
       }
     
 
