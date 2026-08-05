@@ -191,50 +191,38 @@
 
 nav {
 
-    position: relative;
+    position: fixed;
+
+    top: 72px;
+    left: 0;
 
     width: var(--nav-width);
 
-    height: auto;
+    height: calc(100vh - 72px);
 
     display: flex;
-
     flex-direction: column;
 
-    gap: 8px;
+    padding-top: 30px;
 
-    padding: 20px 0;
-
-    background: transparent;
-
-    box-shadow: none;
-
-    z-index: auto;
+    z-index: 1000;
 
 }
 
 
-nav a {
+nnav a {
 
-    display: block;
+    display:block;
 
-    padding: 12px 30px;
+    padding:12px 30px;
 
-    color: #074173;
+    color:#074173;
 
-    font-size: 1rem;
+    font-weight:600;
 
-    font-weight: 600;
-
-    text-decoration: none;
-
-    transition:
-        color .3s ease,
-        background-color .3s ease,
-        transform .3s ease;
+    transition:.3s;
 
 }
-
 
 nav a:hover {
 
@@ -261,21 +249,21 @@ nav a:hover {
 
     main {
 
-    width: calc(100% - var(--nav-width));
-
     margin-left: var(--nav-width);
 
-    padding: 40px;
+    width: calc(100% - var(--nav-width));
 
-    }
+    padding:40px;
+
+}
 
     section {
 
-    padding:80px 8% 60px 8%;
+    padding:80px 8% 60px;
 
     scroll-margin-top:80px;
 
-    }
+}
     
 
     /* =========================================================
