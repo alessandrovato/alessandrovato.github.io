@@ -263,11 +263,11 @@ nav a:hover {
 
     main {
 
-    margin-left: 240px;
+    margin-left: 200px;
 
-    width: calc(100% - 240px);
+    width: calc(100% - 200px);
 
-    padding: 40px;
+    padding: 20px;
 }
 
     section {
