@@ -194,72 +194,83 @@
       transform: scale(1.02);
     }
 
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
- 
+//* =========================================================
+   FLOATING NAVIGATION - BLEND MODE STYLE
+========================================================= */
 
-nav{
+nav {
 
-    position:fixed;
+    position: fixed;
 
-    top:72px;
-    left:24px;
+    top: 72px;
+    left: 24px;
 
-    width:155px;
+    width: 170px;
 
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
-    padding:10px;
+    padding: 10px;
 
-    z-index:1000;
+    z-index: 1000;
 
-    background:transparent;
-    box-shadow:none;
-    backdrop-filter:none;
+    background: transparent;
+
+    mix-blend-mode: difference;
 
 }
 
-.nav-profile {
-    margin-bottom: 10px;
-    padding-bottom: 20px;
 
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+/* ---------------------------------------------------------
+   MENU LINKS
+--------------------------------------------------------- */
 
-nav a{
+nav a {
 
-    position:relative;
+    display: block;
 
-    display:block;
+    padding: 12px 18px;
 
-    padding:12px 18px;
+    font-size: 1rem;
 
-    font-size:1rem;
+    font-weight: 600;
 
-    font-weight:600;
+    letter-spacing: .3px;
 
-    letter-spacing:.3px;
+    text-decoration: none;
 
-    border-radius:12px;
+    border-radius: 12px;
 
-    color:#074173;
+    color: white;
 
     transition:
-        color .35s ease,
-        background-color .35s ease,
-        transform .35s ease;
-}
-
-nav a.active{
-
-    background:rgba(255,255,255,.18);
+        transform .3s ease,
+        opacity .3s ease;
 
 }
 
+
+/* ---------------------------------------------------------
+   HOVER
+--------------------------------------------------------- */
+
+nav a:hover {
+
+    transform: translateX(8px);
+
+}
+
+
+/* ---------------------------------------------------------
+   ACTIVE
+--------------------------------------------------------- */
+
+nav a.active {
+
+    font-weight: 700;
+
+}
 
 
     /* =========================================================
