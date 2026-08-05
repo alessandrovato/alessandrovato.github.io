@@ -272,11 +272,15 @@ nav a:hover {
 
     section {
 
-    padding:40px 8% 60px;
+    padding:60px 8% 60px;
 
     scroll-margin-top:80px;
 
 }
+  .section-title {
+      margin-top:0;
+      margin-bottom:30px;
+  }
     
 
     /* =========================================================
