@@ -263,9 +263,9 @@ nav a:hover {
 
     main {
 
-    margin-left: 200px;
+    margin-left: 180px;
 
-    width: calc(100% - 200px);
+    width: calc(100% - 180px);
 
     padding: 20px;
 }
