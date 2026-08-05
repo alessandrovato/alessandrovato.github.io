@@ -194,83 +194,72 @@
       transform: scale(1.02);
     }
 
-//* =========================================================
-   FLOATING NAVIGATION - BLEND MODE STYLE
-========================================================= */
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+ 
 
-nav {
+nav{
 
-    position: fixed;
+    position:fixed;
 
-    top: 72px;
-    left: 24px;
+    top:72px;
+    left:24px;
 
-    width: 170px;
+    width:155px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 
-    padding: 10px;
+    padding:10px;
 
-    z-index: 1000;
+    z-index:1000;
 
-    background: transparent;
-
-    mix-blend-mode: difference;
+    background:transparent;
+    box-shadow:none;
+    backdrop-filter:none;
 
 }
 
+.nav-profile {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
 
-/* ---------------------------------------------------------
-   MENU LINKS
---------------------------------------------------------- */
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-nav a {
+nav a{
 
-    display: block;
+    position:relative;
 
-    padding: 12px 18px;
+    display:block;
 
-    font-size: 1rem;
+    padding:12px 18px;
 
-    font-weight: 600;
+    font-size:1rem;
 
-    letter-spacing: .3px;
+    font-weight:600;
 
-    text-decoration: none;
+    letter-spacing:.3px;
 
-    border-radius: 12px;
+    border-radius:12px;
 
-    color: white;
+    color:#074173;
 
     transition:
-        transform .3s ease,
-        opacity .3s ease;
+        color .35s ease,
+        background-color .35s ease,
+        transform .35s ease;
+}
+
+nav a.active{
+
+    background:rgba(255,255,255,.18);
 
 }
 
-
-/* ---------------------------------------------------------
-   HOVER
---------------------------------------------------------- */
-
-nav a:hover {
-
-    transform: translateX(8px);
-
-}
-
-
-/* ---------------------------------------------------------
-   ACTIVE
---------------------------------------------------------- */
-
-nav a.active {
-
-    font-weight: 700;
-
-}
 
 
     /* =========================================================
