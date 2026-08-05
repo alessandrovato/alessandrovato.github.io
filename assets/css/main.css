@@ -85,7 +85,7 @@
     }
 
     p {
-      max-width: 65ch;
+      /*max-width: 65ch;*/
       line-height: 1.8;
       letter-spacing: 0.2px;
     }
