@@ -284,22 +284,11 @@ nav a.active {
 }
 
 
-      section{
-
-      min-height:auto;
-
-      padding:40px 8% 120px 180px;
-
-  }
-
-  section[data-theme="light"]{
-      background:#f7f8fa;
-  }
-
-  section[data-theme="dark"]{
-      background:#0b3558;
-      color:white;
-  }
+      section {
+          min-height:100vh;
+          padding:120px 8% 60px 180px;
+      }
+    
 
     /* =========================================================
        CARDS
