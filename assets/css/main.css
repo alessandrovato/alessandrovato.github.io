@@ -189,11 +189,6 @@
        NAVIGATION
     ========================================================= */
  
-
-/* =========================================================
-   FLOATING NAVIGATION - NORMAL MODE
-========================================================= */
-
 nav {
 
     position: fixed;
@@ -243,19 +238,17 @@ nav a {
 
 }
 
-
-nav a:hover {
-
-    background: rgba(7,65,115,.08);
-
-    transform: translateX(8px);
-
+nav a {
+    color:#074173;
+    transition: color .3s ease, transform .3s ease;
 }
 
 
-nav a.active {
+nav a:hover {
 
-    font-weight: 700;
+    color:#a11c16;   /* CUA burgundy */
+
+    transform:translateX(8px);
 
 }
 
