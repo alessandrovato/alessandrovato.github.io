@@ -186,29 +186,30 @@
     }
 
     /* =========================================================
-       NAVIGATION
-    ========================================================= */
- 
+   NORMAL NAVIGATION (NOT FLOATING)
+========================================================= */
+
 nav {
 
-    position: fixed;
+    position: relative;
 
-    top: 72px;
-    left: 24px;
+    width: var(--nav-width);
 
-    width: 170px;
+    height: auto;
 
     display: flex;
+
     flex-direction: column;
+
     gap: 8px;
 
-    padding: 10px;
-
-    z-index: 1000;
+    padding: 20px 0;
 
     background: transparent;
 
     box-shadow: none;
+
+    z-index: auto;
 
 }
 
@@ -217,19 +218,15 @@ nav a {
 
     display: block;
 
-    padding: 12px 18px;
+    padding: 12px 30px;
+
+    color: #074173;
 
     font-size: 1rem;
 
     font-weight: 600;
 
-    letter-spacing: .3px;
-
     text-decoration: none;
-
-    border-radius: 12px;
-
-    color: #074173;
 
     transition:
         color .3s ease,
@@ -238,25 +235,14 @@ nav a {
 
 }
 
-nav a {
-    color:#074173;
-    transition: color .3s ease, transform .3s ease;
-}
-
 
 nav a:hover {
 
-    /* color:#a11c16;   /* CUA burgundy */
+    color: #a11c16;
 
-   /* transform:translateX(8px);*/
-
-    color:#a11c16;
-    background:rgba(161,28,22,0.08);
-    border-radius:10px;
+    transform: translateX(8px);
 
 }
-
-
 
 
     /* =========================================================
@@ -275,16 +261,20 @@ nav a:hover {
 
     main {
 
-    width:100%;
+    width: calc(100% - var(--nav-width));
 
-    margin:0;
+    margin-left: var(--nav-width);
 
-    padding-top:60px;
+    padding: 40px;
 
     }
 
     section {
-          padding:40px 0 100px 40px;
+
+    padding:80px 8% 60px 8%;
+
+    scroll-margin-top:80px;
+
     }
     
 
