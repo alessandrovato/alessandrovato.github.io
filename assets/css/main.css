@@ -249,18 +249,14 @@ nav a{
     color:#074173;
 
     transition:
-        color .45s ease,
-        background-color .45s ease,
+        color .35s ease,
+        background-color .35s ease,
         transform .35s ease;
 }
 
-
-
 nav a.active{
 
-    background:transparent;
-
-    color:white;
+    background:rgba(255,255,255,.18);
 
 }
 
