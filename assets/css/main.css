@@ -257,11 +257,12 @@ nav a{
 
 
 nav a.active{
-    background:red;
+
+    background:transparent;
+
     color:white;
+
 }
-
-
 
 
 

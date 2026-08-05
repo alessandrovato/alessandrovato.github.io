@@ -1,12 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("DOM loaded");
-
     const sections = document.querySelectorAll("section");
     const links = document.querySelectorAll("nav a");
-
-    console.log("Sections found:", sections.length);
-    console.log("Links found:", links.length);
 
     const observer = new IntersectionObserver((entries) => {
 
@@ -14,26 +9,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!entry.isIntersecting) return;
 
-            console.log("Visible section:", entry.target.id);
-
+            // Reset all menu items
             links.forEach(link => {
                 link.classList.remove("active");
+                link.style.color = "#074173";
             });
 
+            // Find the corresponding navigation link
             const activeLink = [...links].find(
                 link => link.hash === "#" + entry.target.id
             );
 
-            console.log("Active link:", activeLink);
+            if (!activeLink) return;
 
-            if (activeLink) {
-                activeLink.classList.add("active");
+            // Highlight active item
+            activeLink.classList.add("active");
+
+            // Change text color according to section theme
+            if (entry.target.classList.contains("dark")) {
+                activeLink.style.color = "white";
+            } else {
+                activeLink.style.color = "#074173";
             }
 
         });
 
     }, {
-        threshold: 0.5
+        threshold: 0.55
     });
 
     sections.forEach(section => observer.observe(section));
