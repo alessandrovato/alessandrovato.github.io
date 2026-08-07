@@ -331,6 +331,23 @@ nav a:hover {
     text-align:center;
 }
 
+.home-text-side h1{
+
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.home-text-side p{
+
+    font-size:1.15rem;
+    line-height:1.8;
+    max-width:760px;
+    margin:auto;
+}
+
+
+
+
     /* =========================================================
        HOME GRID
     ========================================================= */
