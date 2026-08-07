@@ -77,9 +77,14 @@
       background: linear-gradient(90deg, #004c70, #a6192e);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-align:center;
     }
 
-    h2,
+    h2 {
+      text-align:center;
+      font-weight: 700;
+    }
+    }
     h3 {
       font-weight: 700;
     }
@@ -306,7 +311,7 @@ nav a:hover {
 
 /* Mission statement */
 
-.home-text-side{
+.home-text-side {
     width:100%;
     max-width:900px;
     margin-top:-55px;
@@ -317,17 +322,11 @@ nav a:hover {
 .home-text-side .bci-card{
 
     background:white;
-
     padding:45px 50px;
-
     border-left:none;
-
     border-top:5px solid var(--color-accent);
-
     border-radius:18px;
-
     box-shadow:0 15px 40px rgba(0,0,0,.12);
-
     text-align:center;
 }
 
