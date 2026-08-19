@@ -331,10 +331,10 @@ nav a:hover {
     text-align:justify;
 }
 
-.home-text-side h1{
-
-    font-size:3rem;
-    margin-bottom:10px;
+.home-text-side h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .home-text-side p{
