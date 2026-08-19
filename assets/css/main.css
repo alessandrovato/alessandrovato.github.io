@@ -327,7 +327,8 @@ nav a:hover {
     border-top:5px solid var(--color-accent);
     border-radius:18px;
     box-shadow:0 15px 40px rgba(0,0,0,.12);
-    text-align:center;
+    /* text-align:center; */
+    text-align:justify;
 }
 
 .home-text-side h1{
