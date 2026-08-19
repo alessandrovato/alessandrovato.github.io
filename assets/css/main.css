@@ -343,8 +343,11 @@ nav a:hover {
     line-height:1.8;
     max-width:760px;
     margin:auto;
+    text-align: justify;
+}
+
+..home-text-side p:not(:last-child) {
     margin-bottom: 20px;
-    text-align: center;
 }
 
 
