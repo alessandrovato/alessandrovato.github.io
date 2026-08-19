@@ -76,7 +76,7 @@
       const items = document.querySelectorAll("#news .v-timeline-item");
       if (items.length === 0) return;
 
-      const latest = Array.from(items).slice(0, 4);
+      const latest = Array.from(items).slice(0, 3); /* this control how many news are displayed */
       const list = document.getElementById("latest-news-text");
 
       latest.forEach(item => {
