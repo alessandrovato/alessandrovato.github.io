@@ -328,7 +328,7 @@ nav a:hover {
     border-radius:18px;
     box-shadow:0 15px 40px rgba(0,0,0,.12);
     /* text-align:center; */
-    text-align:justify;
+    /*text-align:justify; */
 }
 
 .home-text-side h1 {
@@ -343,7 +343,8 @@ nav a:hover {
     line-height:1.8;
     max-width:760px;
     margin:auto;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 
