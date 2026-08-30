@@ -296,7 +296,7 @@ nav a:hover {
 
 .home-image-side{
     width:100%;
-    max-width:1200px;
+    max-width:880px;
     position:relative;
 }
 
@@ -313,7 +313,7 @@ nav a:hover {
 
 .home-text-side {
     width:100%;
-    max-width:900px;
+    max-width:700px;
     margin-top:-55px;
     position:relative;
     z-index:2;
