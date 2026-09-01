@@ -39,7 +39,7 @@
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
-      line-height: 1.6;
+      line-height: 1.8;
       background: var(--color-bg);
       color: var(--color-text);
 
@@ -338,7 +338,7 @@ nav a:hover {
 }
 
 .home-text-side p{
-    font-size:1.15rem;
+    font-size:1 rem;
     line-height:1.8;
     max-width:760px;
     margin:auto;
