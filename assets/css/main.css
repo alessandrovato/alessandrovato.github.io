@@ -271,7 +271,7 @@ nav a:hover {
 
     .bci-card {
       margin-bottom: 30px;
-      padding: 15px 30px;
+      padding: 15px 15px;
 
       border-left: 4px solid var(--color-accent);
       border-radius: var(--radius-md);
