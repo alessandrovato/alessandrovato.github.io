@@ -323,8 +323,8 @@ nav a:hover {
 
     background:white;
     padding:45px 50px;
-    border-left:none;
-    border-top:5px solid var(--color-accent);
+    border-top:none;
+    border-left:5px solid var(--color-accent);
     border-radius:18px;
     box-shadow:0 15px 40px rgba(0,0,0,.12);
     /* text-align:center; */
@@ -404,7 +404,7 @@ nav a:hover {
     .project-item {
       padding: 25px;
 
-      border-top: 5px solid var(--color-accent);
+      border-left: 5px solid var(--color-accent);
       border-radius: var(--radius-sm);
 
       box-shadow: var(--shadow-sm);
