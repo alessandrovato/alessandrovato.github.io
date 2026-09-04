@@ -404,7 +404,7 @@ nav a:hover {
     .project-item {
       padding: 25px;
 
-      border-left: 5px solid var(--color-accent);
+      border-top: 5px solid var(--color-accent);
       border-radius: var(--radius-sm);
 
       box-shadow: var(--shadow-sm);
